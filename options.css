@@ -396,6 +396,27 @@ main {
 .io-status.success { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,200,150,.25); }
 .io-status.error   { background: var(--red-dim);   color: var(--red);   border: 1px solid rgba(230,57,70,.25); }
 
+/* ── Footer ── */
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.app-version {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
 /* ── Danger zone ── */
 .danger-section {
   padding-top: 16px;

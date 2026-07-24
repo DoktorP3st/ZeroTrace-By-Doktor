@@ -165,6 +165,9 @@ async function importSettings(file) {
 }
 
 async function init() {
+  const { version } = chrome.runtime.getManifest();
+  document.getElementById('app-version').textContent = `v${version}`;
+
   await loadSettings();
   render();
   renderToggle();
