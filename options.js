@@ -1,8 +1,21 @@
 let whitelist = [];
+let autoCleanOnClose = false;
 
-async function loadWhitelist() {
-  const data = await chrome.storage.sync.get('whitelist');
+async function loadSettings() {
+  const data = await chrome.storage.sync.get(['whitelist', 'autoCleanOnClose']);
   whitelist = data.whitelist || [];
+  autoCleanOnClose = data.autoCleanOnClose || false;
+}
+
+function renderToggle() {
+  const toggle = document.getElementById('auto-clean-toggle');
+  toggle.classList.toggle('active', autoCleanOnClose);
+}
+
+async function toggleAutoClean() {
+  autoCleanOnClose = !autoCleanOnClose;
+  await chrome.storage.sync.set({ autoCleanOnClose });
+  renderToggle();
 }
 
 async function saveWhitelist() {
@@ -86,8 +99,9 @@ async function clearAll() {
 }
 
 async function init() {
-  await loadWhitelist();
+  await loadSettings();
   render();
+  renderToggle();
 
   document.getElementById('add-btn').addEventListener('click', addDomain);
 
@@ -101,6 +115,7 @@ async function init() {
   });
 
   document.getElementById('clear-all-btn').addEventListener('click', clearAll);
+  document.getElementById('auto-clean-toggle').addEventListener('click', toggleAutoClean);
 }
 
 document.addEventListener('DOMContentLoaded', init);

@@ -1,3 +1,5 @@
+const DEFAULT_CATEGORIES = ['history', 'cache', 'cookies', 'storage'];
+
 let currentDomain = null;
 let whitelist = [];
 
@@ -29,6 +31,19 @@ async function loadWhitelist() {
 
 async function saveWhitelist() {
   await chrome.storage.sync.set({ whitelist });
+}
+
+async function loadCategories() {
+  const data = await chrome.storage.sync.get('selectedCategories');
+  const saved = data.selectedCategories || DEFAULT_CATEGORIES;
+  document.querySelectorAll('input[name="cat"]').forEach(cb => {
+    cb.checked = saved.includes(cb.value);
+  });
+}
+
+async function saveCategories() {
+  const selected = Array.from(document.querySelectorAll('input[name="cat"]:checked')).map(cb => cb.value);
+  await chrome.storage.sync.set({ selectedCategories: selected });
 }
 
 function renderShield() {
@@ -63,32 +78,41 @@ function getSelectedCategories() {
   return Array.from(document.querySelectorAll('input[name="cat"]:checked')).map(cb => cb.value);
 }
 
+function formatStats(stats) {
+  const parts = [];
+  if (stats.cookies > 0) parts.push(`${stats.cookies.toLocaleString()} cookie${stats.cookies > 1 ? 's' : ''}`);
+  if (stats.urls > 0)    parts.push(`${stats.urls.toLocaleString()} URL${stats.urls > 1 ? 's' : ''}`);
+  if (stats.cache)       parts.push('cache cleared');
+  if (stats.storage)     parts.push('storage cleared');
+  if (stats.forms)       parts.push('forms cleared');
+  return parts.length ? parts.join(' · ') : 'nothing to clean';
+}
+
 async function cleanCookies() {
   const cookies = await chrome.cookies.getAll({});
   const toDelete = cookies.filter(cookie => {
     const domain = cookie.domain.replace(/^\./, '');
     return !whitelist.some(w => domain === w || domain.endsWith('.' + w));
   });
-
   await Promise.allSettled(toDelete.map(cookie => {
     const protocol = cookie.secure ? 'https' : 'http';
     const host = cookie.domain.replace(/^\./, '');
     return chrome.cookies.remove({ url: `${protocol}://${host}${cookie.path}`, name: cookie.name, storeId: cookie.storeId });
   }));
+  return toDelete.length;
 }
 
 async function cleanHistory() {
   const items = await chrome.history.search({ text: '', maxResults: 100000, startTime: 0 });
   const toDelete = items.filter(item => !isUrlProtected(item.url));
   await Promise.allSettled(toDelete.map(item => chrome.history.deleteUrl({ url: item.url })));
+  return toDelete.length;
 }
 
 async function cleanWithExclusions(dataTypes) {
   const excludedOrigins = whitelist.flatMap(domain => [
-    `https://${domain}`,
-    `http://${domain}`,
-    `https://www.${domain}`,
-    `http://www.${domain}`
+    `https://${domain}`, `http://${domain}`,
+    `https://www.${domain}`, `http://www.${domain}`
   ]);
   await chrome.browsingData.remove({ since: 0, excludedOrigins }, dataTypes);
 }
@@ -105,29 +129,31 @@ async function cleanAll() {
   cleanBtn.innerHTML = `<span style="opacity:.7">Cleaning...</span>`;
   statusEl.className = 'status hidden';
 
+  const stats = { cookies: 0, urls: 0, cache: false, storage: false, forms: false };
+
   try {
     const tasks = [];
 
     if (categories.includes('history')) {
-      tasks.push(cleanHistory());
+      tasks.push(cleanHistory().then(n => { stats.urls += n; }));
       tasks.push(chrome.browsingData.remove({ since: 0 }, { downloads: true }));
     }
     if (categories.includes('cache')) {
-      tasks.push(cleanWithExclusions({ cache: true, cacheStorage: true, serviceWorkers: true }));
+      tasks.push(cleanWithExclusions({ cache: true, cacheStorage: true, serviceWorkers: true }).then(() => { stats.cache = true; }));
     }
     if (categories.includes('cookies')) {
-      tasks.push(cleanCookies());
+      tasks.push(cleanCookies().then(n => { stats.cookies += n; }));
     }
     if (categories.includes('storage')) {
-      tasks.push(cleanWithExclusions({ localStorage: true, indexedDB: true, webSQL: true, fileSystems: true }));
+      tasks.push(cleanWithExclusions({ localStorage: true, indexedDB: true, webSQL: true, fileSystems: true }).then(() => { stats.storage = true; }));
     }
     if (categories.includes('forms')) {
-      tasks.push(chrome.browsingData.remove({ since: 0 }, { formData: true, passwords: true }));
+      tasks.push(chrome.browsingData.remove({ since: 0 }, { formData: true, passwords: true }).then(() => { stats.forms = true; }));
     }
 
     await Promise.allSettled(tasks);
 
-    statusEl.textContent = '✓ Browser cleaned successfully!';
+    statusEl.textContent = `✓ ${formatStats(stats)}`;
     statusEl.className = 'status success';
   } catch (err) {
     console.error(err);
@@ -154,13 +180,15 @@ async function init() {
     currentDomain = null;
   }
 
-  await loadWhitelist();
+  await Promise.all([loadWhitelist(), loadCategories()]);
   renderShield();
 
   shieldBtn.addEventListener('click', toggleProtection);
   document.getElementById('clean-btn').addEventListener('click', cleanAll);
-  document.getElementById('settings-btn').addEventListener('click', () => {
-    chrome.runtime.openOptionsPage();
+  document.getElementById('settings-btn').addEventListener('click', () => chrome.runtime.openOptionsPage());
+
+  document.querySelectorAll('input[name="cat"]').forEach(cb => {
+    cb.addEventListener('change', saveCategories);
   });
 }
 
