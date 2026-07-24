@@ -1,8 +1,8 @@
 <div align="center">
 
-# Click & Clean by Pestovich
+# ZeroTrace by Pestovich
 
-**Clean all browser traces in one click — with whitelist protection for the sites you care about.**
+**Wipe all browser traces in one click — with whitelist protection for the sites you care about.**
 
 ![Version](https://img.shields.io/badge/version-1.0.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
@@ -15,7 +15,7 @@
 
 ## What it does
 
-Click & Clean is a Chrome extension that wipes your browser traces instantly — cookies, cache, history, storage, and more — in a single click. Unlike other cleaners, it lets you whitelist specific sites so their login sessions and data are never touched.
+ZeroTrace is a Chrome extension that wipes your browser traces instantly — cookies, cache, history, storage, and more — in a single click. Unlike other cleaners, it lets you whitelist specific sites so their login sessions and data are never touched.
 
 Log out of everything you don't need. Stay logged into everything you do.
 
@@ -70,7 +70,7 @@ The extension icon will appear in your Chrome toolbar.
 ## Project structure
 
 ```
-Click & Clean by Pestovich/
+ZeroTrace by Pestovich/
 ├── manifest.json       Chrome extension config (MV3)
 ├── popup.html/css/js   Main popup interface
 ├── options.html/css/js Protected sites management page
