@@ -13,6 +13,18 @@
 
 ---
 
+## Screenshots
+
+<div align="center">
+
+| Main Popup | Protected Sites |
+|:---:|:---:|
+| ![ZeroTrace popup](https://i.ibb.co/vxFsrFhr/Capture-d-cran-2026-07-25-012630.png) | ![ZeroTrace whitelist](https://i.ibb.co/0Vqr27kw/Capture-d-cran-2026-07-25-012634.png) |
+
+</div>
+
+---
+
 ## What it does
 
 ZeroTrace is a Chrome extension that wipes your browser traces instantly — cookies, cache, history, storage, and more — in a single click. Unlike other cleaners, it lets you whitelist specific sites so their login sessions and data are never touched.
