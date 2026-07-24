@@ -2,6 +2,10 @@
 
 # ZeroTrace by Pestovich
 
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.md)
+[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.fr.md)
+[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.es.md)
+
 **Wipe all browser traces in one click — with whitelist protection for the sites you care about.**
 
 ![Version](https://img.shields.io/badge/version-1.0.0-e63946?style=flat-square)
@@ -36,9 +40,11 @@ Log out of everything you don't need. Stay logged into everything you do.
 ## Features
 
 - **One-click cleaning** — hit the button, done
-- **Site whitelist** — protect any domain from being cleaned; their cookies and data survive every wipe
+- **Site whitelist** — protect any domain; their cookies and data survive every wipe
 - **5 cleaning categories** — toggle each one independently
-- **Dedicated settings page** — manage your full whitelist in a clean interface, add domains manually
+- **Auto-clean on close** — optionally wipe everything when Chrome closes
+- **Post-clean stats** — see exactly how many cookies, URLs and cache were removed
+- **Backup & Restore** — export your settings to JSON and reimport them anytime
 - **Manifest V3** — built on the modern Chrome extension standard
 
 ---
@@ -77,17 +83,11 @@ The extension icon will appear in your Chrome toolbar.
 **Cleaning**
 > Toggle the categories you want to clean, then press **CLEAN ALL**. Done in seconds.
 
----
+**Auto-clean on close**
+> Enable it in Settings — ZeroTrace will automatically clean when Chrome closes.
 
-## Project structure
-
-```
-ZeroTrace by Pestovich/
-├── manifest.json       Chrome extension config (MV3)
-├── popup.html/css/js   Main popup interface
-├── options.html/css/js Protected sites management page
-└── icons/              Extension icons (16, 48, 128px)
-```
+**Backup & Restore**
+> Export your whitelist and settings to a JSON file. Reimport them on any device.
 
 ---
 
