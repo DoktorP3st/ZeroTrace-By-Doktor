@@ -5,13 +5,18 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.md)
 [![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.fr.md)
 [![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.es.md)
+[![pt-pt](https://img.shields.io/badge/lang-pt--pt-green.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.pt-pt.md)
+[![de](https://img.shields.io/badge/lang-de-lightgrey.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.de.md)
+[![it](https://img.shields.io/badge/lang-it-008C45.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.it.md)
+[![ja](https://img.shields.io/badge/lang-ja-BC002D.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.ja.md)
 
 **Wipe all browser traces in one click — with whitelist protection for the sites you care about.**
 
-![Version](https://img.shields.io/badge/version-1.0.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.1.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
+![Languages](https://img.shields.io/badge/languages-7-orange?style=flat-square)
 
 </div>
 
@@ -43,8 +48,9 @@ Log out of everything you don't need. Stay logged into everything you do.
 - **Site whitelist** — protect any domain; their cookies and data survive every wipe
 - **5 cleaning categories** — toggle each one independently
 - **Auto-clean on close** — optionally wipe everything when Chrome closes
-- **Post-clean stats** — see exactly how many cookies, URLs and cache were removed
+- **Post-clean stats** — see exactly how many cookies and URLs were removed
 - **Backup & Restore** — export your settings to JSON and reimport them anytime
+- **7 languages** — EN, FR, ES, PT-PT, DE, IT, JA
 - **Manifest V3** — built on the modern Chrome extension standard
 
 ---
@@ -68,26 +74,19 @@ Log out of everything you don't need. Stay logged into everything you do.
 3. Enable **Developer mode** (top-right toggle)
 4. Click **Load unpacked** and select the project folder
 
-The extension icon will appear in your Chrome toolbar.
-
 ---
 
 ## Usage
 
-**Protecting a site**
-> Navigate to any site, open the extension popup, and click **Protect**. That site's data will be excluded from all future cleans.
+**Protecting a site** — Navigate to any site, open the popup, and click **Protect**.
 
-**Managing your whitelist**
-> Click **Manage protected sites** at the bottom of the popup to open the full settings page. Add domains manually or remove existing ones.
+**Managing your whitelist** — Click **Manage protected sites** to open the full settings page.
 
-**Cleaning**
-> Toggle the categories you want to clean, then press **CLEAN ALL**. Done in seconds.
+**Cleaning** — Toggle the categories you want, then press **CLEAN ALL**.
 
-**Auto-clean on close**
-> Enable it in Settings — ZeroTrace will automatically clean when Chrome closes.
+**Auto-clean on close** — Enable in Settings to clean automatically when Chrome closes.
 
-**Backup & Restore**
-> Export your whitelist and settings to a JSON file. Reimport them on any device.
+**Backup & Restore** — Export your settings to JSON, reimport on any device.
 
 ---
 

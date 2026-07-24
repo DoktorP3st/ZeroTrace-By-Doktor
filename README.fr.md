@@ -5,13 +5,18 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.md)
 [![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.fr.md)
 [![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.es.md)
+[![pt-pt](https://img.shields.io/badge/lang-pt--pt-green.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.pt-pt.md)
+[![de](https://img.shields.io/badge/lang-de-lightgrey.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.de.md)
+[![it](https://img.shields.io/badge/lang-it-008C45.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.it.md)
+[![ja](https://img.shields.io/badge/lang-ja-BC002D.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.ja.md)
 
-**Supprimez toutes vos traces de navigation en un clic — avec une liste blanche pour protéger les sites importants.**
+**Supprimez toutes vos traces de navigation en un clic — avec liste blanche pour protéger les sites importants.**
 
-![Version](https://img.shields.io/badge/version-1.0.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.1.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
-![License](https://img.shields.io/badge/licence-MIT-6b7491?style=flat-square)
+![Licence](https://img.shields.io/badge/licence-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
+![Langues](https://img.shields.io/badge/langues-7-orange?style=flat-square)
 
 </div>
 
@@ -31,7 +36,7 @@
 
 ## À quoi ça sert
 
-ZeroTrace est une extension Chrome qui efface instantanément toutes vos traces de navigation — cookies, cache, historique, stockage local, et plus — en un seul clic. Contrairement aux autres outils de nettoyage, elle vous permet de protéger certains sites pour que leurs sessions et données ne soient jamais supprimées.
+ZeroTrace est une extension Chrome qui efface instantanément toutes vos traces de navigation — cookies, cache, historique, stockage local, et plus — en un seul clic. Elle vous permet de protéger certains sites pour que leurs sessions et données ne soient jamais supprimées.
 
 Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là où ça compte.
 
@@ -40,11 +45,12 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 ## Fonctionnalités
 
 - **Nettoyage en 1 clic** — appuyez sur le bouton, c'est fait
-- **Liste blanche de sites** — protégez un domaine ; ses cookies et données survivent à chaque nettoyage
+- **Liste blanche de sites** — protégez un domaine ; ses données survivent à chaque nettoyage
 - **5 catégories de nettoyage** — activez ou désactivez chacune indépendamment
-- **Nettoyage automatique à la fermeture** — option pour tout nettoyer quand Chrome se ferme
-- **Statistiques post-nettoyage** — voyez exactement combien de cookies, URLs et cache ont été supprimés
+- **Nettoyage auto à la fermeture** — option pour tout nettoyer quand Chrome se ferme
+- **Statistiques post-nettoyage** — cookies et URLs supprimés affichés après chaque nettoyage
 - **Sauvegarde & Restauration** — exportez vos paramètres en JSON et réimportez-les à tout moment
+- **7 langues** — EN, FR, ES, PT-PT, DE, IT, JA
 - **Manifest V3** — basé sur le standard moderne des extensions Chrome
 
 ---
@@ -53,11 +59,11 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 
 | Catégorie | Ce qui est supprimé |
 |---|---|
-| **Navigation Trail** | Historique de navigation & liste des téléchargements |
+| **Navigation Trail** | Historique de navigation & téléchargements |
 | **Web Cache** | Fichiers en cache, images, service workers |
 | **Cookies & Sessions** | Tous les cookies *(liste blanche protégée)* |
 | **Site Storage** | LocalStorage, IndexedDB, WebSQL |
-| **Forms & Passwords** | Données de formulaires & mots de passe *(désactivé par défaut)* |
+| **Forms & Passwords** | Formulaires & mots de passe *(désactivé par défaut)* |
 
 ---
 
@@ -66,28 +72,21 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 1. Clonez ou téléchargez ce dépôt
 2. Ouvrez Chrome et allez sur `chrome://extensions/`
 3. Activez le **Mode développeur** (interrupteur en haut à droite)
-4. Cliquez sur **Charger l'extension non empaquetée** et sélectionnez le dossier du projet
-
-L'icône de l'extension apparaîtra dans votre barre d'outils Chrome.
+4. Cliquez sur **Charger l'extension non empaquetée** et sélectionnez le dossier
 
 ---
 
 ## Utilisation
 
-**Protéger un site**
-> Naviguez vers un site, ouvrez la popup de l'extension et cliquez sur **Protect**. Les données de ce site seront exclues de tous les futurs nettoyages.
+**Protéger un site** — Naviguez vers un site, ouvrez la popup et cliquez sur **Protéger**.
 
-**Gérer votre liste blanche**
-> Cliquez sur **Manage protected sites** en bas de la popup pour ouvrir la page de paramètres. Ajoutez des domaines manuellement ou supprimez des entrées existantes.
+**Gérer la liste blanche** — Cliquez sur **Gérer les sites protégés** pour ouvrir les paramètres.
 
-**Nettoyer**
-> Activez les catégories souhaitées, puis appuyez sur **CLEAN ALL**. Terminé en quelques secondes.
+**Nettoyer** — Activez les catégories souhaitées, puis appuyez sur **TOUT NETTOYER**.
 
-**Nettoyage automatique à la fermeture**
-> Activez-le dans les Paramètres — ZeroTrace nettoiera automatiquement à la fermeture de Chrome.
+**Nettoyage auto à la fermeture** — Activez dans les Paramètres pour nettoyer automatiquement.
 
-**Sauvegarde & Restauration**
-> Exportez votre liste blanche et vos paramètres dans un fichier JSON. Réimportez-les sur n'importe quel appareil.
+**Sauvegarde & Restauration** — Exportez vos paramètres en JSON, réimportez sur n'importe quel appareil.
 
 ---
 

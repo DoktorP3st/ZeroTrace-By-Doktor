@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "ZeroTrace by Pestovich",
+  "name": "__MSG_ext_name__",
   "short_name": "ZeroTrace",
-  "version": "1.0.0",
-  "description": "Wipe all browser traces in one click. Whitelist your important sites so their data is never touched.",
+  "version": "1.1.0",
+  "default_locale": "en",
+  "description": "__MSG_ext_description__",
   "permissions": [
     "browsingData",
     "cookies",
@@ -14,7 +15,7 @@
   "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "ZeroTrace by Pestovich",
+    "default_title": "__MSG_ext_name__",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",

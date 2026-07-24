@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Protected Sites — ZeroTrace by Pestovich</title>
+  <title>ZeroTrace — Settings</title>
   <link rel="stylesheet" href="options.css">
 </head>
 <body>
@@ -14,8 +14,8 @@
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
         <div>
-          <h1>Protected Sites</h1>
-          <p class="subtitle">ZeroTrace by Pestovich — data from these sites is never deleted</p>
+          <h1 data-i18n="protected_sites">Protected Sites</h1>
+          <p class="subtitle"><span data-i18n="subtitle">Data from these sites is never deleted</span></p>
         </div>
       </div>
       <span id="total-count" class="total-badge">0 sites</span>
@@ -24,11 +24,11 @@
     <main>
 
       <section class="behavior-section">
-        <div class="section-label">BEHAVIOR</div>
+        <div class="section-label" data-i18n="behavior">BEHAVIOR</div>
         <label class="behavior-item">
           <div class="behavior-info">
-            <span class="behavior-name">Auto-clean on browser close</span>
-            <span class="behavior-desc">Automatically wipe selected categories when Chrome closes</span>
+            <span class="behavior-name" data-i18n="auto_clean_name">Auto-clean on browser close</span>
+            <span class="behavior-desc" data-i18n="auto_clean_desc">Automatically wipe selected categories when Chrome closes</span>
           </div>
           <div class="toggle-track" id="auto-clean-toggle">
             <div class="toggle-thumb"></div>
@@ -41,6 +41,7 @@
           <input
             type="text"
             id="add-input"
+            data-i18n-placeholder="domain_placeholder"
             placeholder="domain.com"
             autocomplete="off"
             spellcheck="false"
@@ -50,7 +51,7 @@
               <line x1="12" y1="5" x2="12" y2="19"/>
               <line x1="5" y1="12" x2="19" y2="12"/>
             </svg>
-            Add
+            <span data-i18n="add">Add</span>
           </button>
         </div>
         <p id="add-error" class="add-error hidden"></p>
@@ -61,10 +62,9 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
-          <p>No protected sites yet</p>
-          <span>Add a domain above or click "Protect" in the extension popup when visiting a site</span>
+          <p data-i18n="empty_title">No protected sites yet</p>
+          <span data-i18n="empty_desc">Add a domain above or click "Protect" in the popup</span>
         </div>
-
         <ul id="site-list" class="site-list"></ul>
       </section>
 
@@ -74,12 +74,12 @@
             <polyline points="3 6 5 6 21 6"/>
             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
           </svg>
-          Remove all protected sites
+          <span data-i18n="remove_all">Remove all protected sites</span>
         </button>
       </section>
 
       <section class="io-section">
-        <div class="section-label">BACKUP &amp; RESTORE</div>
+        <div class="section-label" data-i18n="backup_restore">BACKUP &amp; RESTORE</div>
         <div class="io-row">
           <button id="export-btn" class="io-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -87,7 +87,7 @@
               <polyline points="7 10 12 15 17 10"/>
               <line x1="12" y1="15" x2="12" y2="3"/>
             </svg>
-            Export settings
+            <span data-i18n="export_settings">Export settings</span>
           </button>
           <label class="io-btn io-import-label">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -95,7 +95,7 @@
               <polyline points="7 10 12 5 17 10"/>
               <line x1="12" y1="5" x2="12" y2="17"/>
             </svg>
-            Import settings
+            <span data-i18n="import_settings">Import settings</span>
             <input type="file" id="import-input" accept=".json" hidden>
           </label>
         </div>

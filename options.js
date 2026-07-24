@@ -4,6 +4,21 @@ const EXPORT_KEYS = ['whitelist', 'selectedCategories', 'autoCleanOnClose'];
 let whitelist = [];
 let autoCleanOnClose = false;
 
+function t(key) {
+  return chrome.i18n.getMessage(key) || key;
+}
+
+function applyI18n() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const msg = t(el.dataset.i18n);
+    if (msg) el.textContent = msg;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const msg = t(el.dataset.i18nPlaceholder);
+    if (msg) el.placeholder = msg;
+  });
+}
+
 async function loadSettings() {
   const data = await chrome.storage.sync.get(EXPORT_KEYS);
   whitelist = data.whitelist || [];
@@ -29,8 +44,8 @@ function isValidDomain(str) {
 }
 
 function render() {
-  const listEl  = document.getElementById('site-list');
-  const emptyEl = document.getElementById('empty-state');
+  const listEl   = document.getElementById('site-list');
+  const emptyEl  = document.getElementById('empty-state');
   const dangerEl = document.getElementById('danger-section');
   const totalEl  = document.getElementById('total-count');
 
@@ -54,7 +69,7 @@ function render() {
         <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </span>
       <span class="site-domain" title="${domain}">${domain}</span>
-      <button class="site-remove" data-domain="${domain}">Remove</button>
+      <button class="site-remove" data-domain="${domain}">${t('remove')}</button>
     `;
     listEl.appendChild(li);
   });
@@ -70,7 +85,7 @@ async function addDomain() {
   if (!raw) return;
 
   if (!isValidDomain(raw)) {
-    errorEl.textContent = `"${raw}" is not a valid domain (e.g. google.com)`;
+    errorEl.textContent = `"${raw}" — ${t('import_failed')}`;
     errorEl.className = 'add-error';
     return;
   }
@@ -93,7 +108,7 @@ async function removeDomain(domain) {
 }
 
 async function clearAll() {
-  if (!confirm('Remove all protected sites? Their data will be cleaned on next Clean All.')) return;
+  if (!confirm(t('confirm_clear_all'))) return;
   whitelist = [];
   await saveWhitelist();
   render();
@@ -103,7 +118,7 @@ async function clearAll() {
 async function exportSettings() {
   const data = await chrome.storage.sync.get(EXPORT_KEYS);
   const payload = {
-    version: '1.0',
+    version: chrome.runtime.getManifest().version,
     exportedAt: new Date().toISOString(),
     settings: {
       whitelist:          data.whitelist          || [],
@@ -116,7 +131,7 @@ async function exportSettings() {
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
   a.href     = url;
-  a.download = `zerotrace-settings-${new Date().toISOString().slice(0,10)}.json`;
+  a.download = `zerotrace-settings-${new Date().toISOString().slice(0, 10)}.json`;
   a.click();
   URL.revokeObjectURL(url);
 }
@@ -127,19 +142,16 @@ async function importSettings(file) {
   statusEl.className = 'io-status hidden';
 
   try {
-    const text = await file.text();
+    const text   = await file.text();
     const parsed = JSON.parse(text);
 
-    if (!parsed.settings || typeof parsed.settings !== 'object') {
-      throw new Error('Invalid file format');
-    }
+    if (!parsed.settings || typeof parsed.settings !== 'object') throw new Error('Invalid file format');
 
     const s = parsed.settings;
     const toSave = {};
 
     if (Array.isArray(s.whitelist)) {
-      const valid = s.whitelist.filter(d => typeof d === 'string' && isValidDomain(d));
-      toSave.whitelist = [...new Set(valid)];
+      toSave.whitelist = [...new Set(s.whitelist.filter(d => typeof d === 'string' && isValidDomain(d)))];
     }
     if (Array.isArray(s.selectedCategories)) {
       const allowed = ['history', 'cache', 'cookies', 'storage', 'forms'];
@@ -154,10 +166,10 @@ async function importSettings(file) {
     render();
     renderToggle();
 
-    statusEl.textContent = '✓ Settings imported successfully';
+    statusEl.textContent = `✓ ${t('status_imported')}`;
     statusEl.className = 'io-status success';
   } catch (err) {
-    statusEl.textContent = `✗ Import failed — ${err.message}`;
+    statusEl.textContent = `✗ ${t('import_failed')} — ${err.message}`;
     statusEl.className = 'io-status error';
   }
 
@@ -165,6 +177,8 @@ async function importSettings(file) {
 }
 
 async function init() {
+  applyI18n();
+
   const { version } = chrome.runtime.getManifest();
   document.getElementById('app-version').textContent = `v${version}`;
 
