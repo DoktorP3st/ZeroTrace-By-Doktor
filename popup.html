@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click &amp; Clean by Pestovich</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+
+    <header>
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <polyline points="23 4 23 10 17 10"/>
+          <polyline points="1 20 1 14 7 14"/>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-name">Click &amp; Clean</span>
+          <span class="logo-sub">by Pestovich</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="current-site">
+      <div class="site-row">
+        <div class="site-favicon" id="site-favicon">🌐</div>
+        <span id="current-domain" class="domain-label">Loading...</span>
+      </div>
+      <button id="shield-btn" class="shield-btn" title="Add to whitelist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span id="shield-label">Protect</span>
+      </button>
+    </section>
+
+    <section class="categories-section">
+      <div class="section-header">
+        <span class="section-title">WHAT TO CLEAN</span>
+      </div>
+      <div class="categories">
+
+        <label class="cat-item">
+          <input type="checkbox" name="cat" value="history" checked>
+          <div class="cat-body">
+            <span class="cat-icon">🕵️</span>
+            <div class="cat-info">
+              <span class="cat-name">Navigation Trail</span>
+              <span class="cat-desc">History &amp; downloads list</span>
+            </div>
+          </div>
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+        </label>
+
+        <label class="cat-item">
+          <input type="checkbox" name="cat" value="cache" checked>
+          <div class="cat-body">
+            <span class="cat-icon">🗄️</span>
+            <div class="cat-info">
+              <span class="cat-name">Web Cache</span>
+              <span class="cat-desc">Cached files &amp; service workers</span>
+            </div>
+          </div>
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+        </label>
+
+        <label class="cat-item">
+          <input type="checkbox" name="cat" value="cookies" checked>
+          <div class="cat-body">
+            <span class="cat-icon">🍪</span>
+            <div class="cat-info">
+              <span class="cat-name">Cookies &amp; Sessions</span>
+              <span class="cat-desc">Login data (whitelist safe)</span>
+            </div>
+          </div>
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+        </label>
+
+        <label class="cat-item">
+          <input type="checkbox" name="cat" value="storage" checked>
+          <div class="cat-body">
+            <span class="cat-icon">💾</span>
+            <div class="cat-info">
+              <span class="cat-name">Site Storage</span>
+              <span class="cat-desc">LocalStorage, IndexedDB</span>
+            </div>
+          </div>
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+        </label>
+
+        <label class="cat-item">
+          <input type="checkbox" name="cat" value="forms">
+          <div class="cat-body">
+            <span class="cat-icon">📋</span>
+            <div class="cat-info">
+              <span class="cat-name">Forms &amp; Passwords</span>
+              <span class="cat-desc">Autofill &amp; saved passwords</span>
+            </div>
+          </div>
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+        </label>
+
+      </div>
+    </section>
+
+    <section class="action-section">
+      <button id="clean-btn" class="clean-btn">
+        <svg class="clean-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="3 6 5 6 21 6"/>
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+        </svg>
+        CLEAN ALL
+      </button>
+      <div id="status" class="status hidden"></div>
+      <button id="settings-btn" class="settings-btn" title="Manage protected sites">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+        Manage protected sites
+        <span id="wl-count-badge" class="wl-count-badge">0</span>
+      </button>
+    </section>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

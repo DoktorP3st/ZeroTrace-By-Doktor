@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Protected Sites — Click &amp; Clean by Pestovich</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div id="app">
+
+    <header>
+      <div class="header-left">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <div>
+          <h1>Protected Sites</h1>
+          <p class="subtitle">Click &amp; Clean by Pestovich — data from these sites is never deleted</p>
+        </div>
+      </div>
+      <span id="total-count" class="total-badge">0 sites</span>
+    </header>
+
+    <main>
+
+      <section class="add-section">
+        <div class="input-row">
+          <input
+            type="text"
+            id="add-input"
+            placeholder="domain.com"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button id="add-btn" class="add-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Add
+          </button>
+        </div>
+        <p id="add-error" class="add-error hidden"></p>
+      </section>
+
+      <section class="list-section">
+        <div id="empty-state" class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <p>No protected sites yet</p>
+          <span>Add a domain above or click "Protect" in the extension popup when visiting a site</span>
+        </div>
+
+        <ul id="site-list" class="site-list"></ul>
+      </section>
+
+      <section id="danger-section" class="danger-section hidden">
+        <button id="clear-all-btn" class="clear-all-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+          </svg>
+          Remove all protected sites
+        </button>
+      </section>
+
+    </main>
+
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
