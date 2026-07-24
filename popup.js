@@ -26,15 +26,6 @@ function isDomainProtected(domain) {
   return whitelist.includes(domain);
 }
 
-function isUrlProtected(url) {
-  try {
-    const domain = extractDomain(url);
-    return whitelist.some(w => domain === w || domain.endsWith('.' + w));
-  } catch {
-    return false;
-  }
-}
-
 async function loadWhitelist() {
   const data = await chrome.storage.sync.get('whitelist');
   whitelist = data.whitelist || [];
@@ -96,42 +87,68 @@ function formatStats(stats) {
   return parts.length ? parts.join(' · ') : 'nothing to clean';
 }
 
+// Wraps a single browsingData.remove call — a deprecated/unsupported type
+// won't silently kill other types
+async function safeRemove(options, dataType) {
+  try {
+    await chrome.browsingData.remove(options, dataType);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 // ── Cleaners ──
+// Whitelist only protects COOKIES. History, cache, storage are wiped for all sites.
+
+async function cleanHistory() {
+  // Always delete all — whitelist doesn't apply here
+  await chrome.history.deleteAll();
+}
+
+async function cleanCache() {
+  // Each type in its own call — deprecated types (appcache) won't block the others
+  await Promise.allSettled([
+    safeRemove({ since: 0 }, { cache: true }),
+    safeRemove({ since: 0 }, { cacheStorage: true }),
+    safeRemove({ since: 0 }, { serviceWorkers: true }),
+  ]);
+}
 
 async function cleanCookies() {
+  // Whitelist applies here only — keep cookies from protected domains
   const cookies = await chrome.cookies.getAll({});
   const toDelete = cookies.filter(cookie => {
     const domain = cookie.domain.replace(/^\./, '');
     return !whitelist.some(w => domain === w || domain.endsWith('.' + w));
   });
+
   await Promise.allSettled(toDelete.map(cookie => {
     const protocol = cookie.secure ? 'https' : 'http';
     const host = cookie.domain.replace(/^\./, '');
-    return chrome.cookies.remove({ url: `${protocol}://${host}${cookie.path}`, name: cookie.name, storeId: cookie.storeId });
+    return chrome.cookies.remove({
+      url: `${protocol}://${host}${cookie.path}`,
+      name: cookie.name,
+      storeId: cookie.storeId
+    });
   }));
+
   return toDelete.length;
 }
 
-async function cleanHistory() {
-  if (whitelist.length === 0) {
-    await chrome.history.deleteAll();
-    return 0;
-  }
-  // maxResults: 0 = no limit
-  const items = await chrome.history.search({ text: '', maxResults: 0, startTime: 0 });
-  const toDelete = items.filter(item => {
-    try { return !isUrlProtected(item.url); } catch { return true; }
-  });
-  await Promise.allSettled(toDelete.map(item => chrome.history.deleteUrl({ url: item.url })));
-  return toDelete.length;
-}
-
-async function cleanWithExclusions(dataTypes) {
-  const excludedOrigins = whitelist.flatMap(domain => [
-    `https://${domain}`, `http://${domain}`,
-    `https://www.${domain}`, `http://www.${domain}`
+async function cleanStorage() {
+  // All sites — whitelist doesn't apply here
+  await Promise.allSettled([
+    safeRemove({ since: 0 }, { localStorage: true }),
+    safeRemove({ since: 0 }, { indexedDB: true }),
   ]);
-  await chrome.browsingData.remove({ since: 0, excludedOrigins }, dataTypes);
+}
+
+async function cleanForms() {
+  await Promise.allSettled([
+    safeRemove({ since: 0 }, { formData: true }),
+    safeRemove({ since: 0 }, { passwords: true }),
+  ]);
 }
 
 // ── Main ──
@@ -140,8 +157,8 @@ async function cleanAll() {
   const categories = getSelectedCategories();
   if (categories.length === 0) return;
 
-  const cleanBtn   = document.getElementById('clean-btn');
-  const statusEl   = document.getElementById('status');
+  const cleanBtn     = document.getElementById('clean-btn');
+  const statusEl     = document.getElementById('status');
   const originalHTML = cleanBtn.innerHTML;
 
   cleanBtn.disabled = true;
@@ -154,26 +171,22 @@ async function cleanAll() {
     const tasks = [];
 
     if (categories.includes('history')) {
-      tasks.push(cleanHistory().then(n => { if (n) stats.urls += n; }));
-      tasks.push(chrome.browsingData.remove({ since: 0 }, { downloads: true }));
+      tasks.push(
+        cleanHistory(),
+        safeRemove({ since: 0 }, { downloads: true })
+      );
     }
     if (categories.includes('cache')) {
-      tasks.push(cleanWithExclusions({
-        cache: true, cacheStorage: true, appcache: true, serviceWorkers: true
-      }).then(() => { stats.cache = true; }));
+      tasks.push(cleanCache().then(() => { stats.cache = true; }));
     }
     if (categories.includes('cookies')) {
       tasks.push(cleanCookies().then(n => { stats.cookies += n; }));
     }
     if (categories.includes('storage')) {
-      tasks.push(cleanWithExclusions({
-        localStorage: true, indexedDB: true, webSQL: true, fileSystems: true
-      }).then(() => { stats.storage = true; }));
+      tasks.push(cleanStorage().then(() => { stats.storage = true; }));
     }
     if (categories.includes('forms')) {
-      tasks.push(chrome.browsingData.remove({ since: 0 }, {
-        formData: true, passwords: true
-      }).then(() => { stats.forms = true; }));
+      tasks.push(cleanForms().then(() => { stats.forms = true; }));
     }
 
     await Promise.allSettled(tasks);
