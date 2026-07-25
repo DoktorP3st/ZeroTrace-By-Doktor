@@ -27,7 +27,7 @@
 
 | Popup principal | Ajustes |
 |:---:|:---:|
-| ![ZeroTrace popup](https://i.ibb.co/LDpgBpBM/interfaceprincipal.png) | ![ZeroTrace settings](https://i.ibb.co/0y5NgFT1/Parametre.png) |
+| ![ZeroTrace popup](https://i.ibb.co/6RWDSfFC/Capture-d-cran-2026-07-25-163713.png) | ![ZeroTrace settings](https://i.ibb.co/0y5NgFT1/Parametre.png) |
 
 | Lista blanca | Gestor de cookies |
 |:---:|:---:|
