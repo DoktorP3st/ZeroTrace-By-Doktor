@@ -767,6 +767,24 @@ main {
   color: var(--text-dim);
 }
 
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-gh-link {
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-gh-link:hover {
+  color: var(--text-sec);
+}
+
 .app-version {
   background: var(--surface2);
   border: 1px solid var(--border);

@@ -1,4 +1,4 @@
-const EXPORT_KEYS = ['whitelist', 'selectedCategories', 'autoCleanOnStartup', 'uiLang'];
+const EXPORT_KEYS = ['whitelist', 'selectedCategories', 'autoCleanOnStartup', 'uiLang', 'timeRange'];
 
 let whitelist = [];
 let autoCleanOnStartup = false;
@@ -324,9 +324,10 @@ async function exportSettings() {
     exportedAt: new Date().toISOString(),
     settings: {
       whitelist:          data.whitelist          || [],
-      selectedCategories: data.selectedCategories || ['history', 'cache', 'cookies', 'storage'],
+      selectedCategories: data.selectedCategories || ['history', 'downloads', 'cache', 'cookies', 'localStorage', 'indexedDB'],
       autoCleanOnStartup: data.autoCleanOnStartup || false,
-      uiLang:             data.uiLang             || 'auto'
+      uiLang:             data.uiLang             || 'auto',
+      timeRange:          data.timeRange          || 'all'
     }
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
@@ -353,8 +354,15 @@ async function importSettings(file) {
       toSave.whitelist = [...new Set(s.whitelist.filter(d => typeof d === 'string' && isValidDomain(d)))];
     }
     if (Array.isArray(s.selectedCategories)) {
-      const allowed = ['history', 'cache', 'cookies', 'storage', 'forms'];
-      toSave.selectedCategories = s.selectedCategories.filter(c => allowed.includes(c));
+      const allowed = ['history', 'downloads', 'cache', 'cookies', 'localStorage', 'indexedDB', 'forms', 'storage'];
+      let cats = s.selectedCategories.filter(c => allowed.includes(c));
+      if (cats.includes('storage')) {
+        cats = [...cats.filter(c => c !== 'storage'), 'localStorage', 'indexedDB'];
+      }
+      toSave.selectedCategories = [...new Set(cats)];
+    }
+    if (typeof s.timeRange === 'string' && ['1h', '24h', '7d', 'all'].includes(s.timeRange)) {
+      toSave.timeRange = s.timeRange;
     }
     if (typeof s.autoCleanOnStartup === 'boolean') toSave.autoCleanOnStartup = s.autoCleanOnStartup;
     if (typeof s.uiLang === 'string') {

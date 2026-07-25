@@ -1,9 +1,7 @@
 // Whitelist only protects COOKIES. Everything else is wiped for all sites.
 
 async function safeRemove(options, dataType) {
-  try {
-    await chrome.browsingData.remove(options, dataType);
-  } catch {}
+  try { await chrome.browsingData.remove(options, dataType); } catch {}
 }
 
 async function cleanCookies(whitelist) {
@@ -46,10 +44,21 @@ async function cleanCookies(whitelist) {
 }
 
 async function performClean(whitelist, categories) {
+  // Migration: old 'storage' key → localStorage + indexedDB
+  if (categories.includes('storage')) {
+    categories = [...categories.filter(c => c !== 'storage'), 'localStorage', 'indexedDB'];
+  }
+  // Migration: old 'history' silently included downloads
+  if (categories.includes('history') && !categories.includes('downloads')) {
+    categories = [...categories, 'downloads'];
+  }
+
   const tasks = [];
 
   if (categories.includes('history')) {
-    tasks.push(chrome.history.deleteAll());
+    tasks.push(chrome.history.deleteAll().catch(() => {}));
+  }
+  if (categories.includes('downloads')) {
     tasks.push(safeRemove({ since: 0 }, { downloads: true }));
   }
   if (categories.includes('cache')) {
@@ -60,8 +69,10 @@ async function performClean(whitelist, categories) {
   if (categories.includes('cookies')) {
     tasks.push(cleanCookies(whitelist));
   }
-  if (categories.includes('storage')) {
+  if (categories.includes('localStorage')) {
     tasks.push(safeRemove({ since: 0 }, { localStorage: true }));
+  }
+  if (categories.includes('indexedDB')) {
     tasks.push(safeRemove({ since: 0 }, { indexedDB: true }));
   }
   if (categories.includes('forms')) {
@@ -75,5 +86,8 @@ async function performClean(whitelist, categories) {
 chrome.runtime.onStartup.addListener(async () => {
   const data = await chrome.storage.sync.get(['autoCleanOnStartup', 'whitelist', 'selectedCategories']);
   if (!data.autoCleanOnStartup) return;
-  await performClean(data.whitelist || [], data.selectedCategories || ['history', 'cache', 'cookies', 'storage']);
+  await performClean(
+    data.whitelist || [],
+    data.selectedCategories || ['history', 'downloads', 'cache', 'cookies', 'localStorage', 'indexedDB']
+  );
 });

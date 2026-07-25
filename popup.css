@@ -22,7 +22,7 @@
 }
 
 html, body {
-  width: 340px;
+  width: 360px;
   background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -38,7 +38,7 @@ html, body {
 
 /* ── Header ── */
 header {
-  padding: 14px 16px 12px;
+  padding: 11px 16px 9px;
   border-bottom: 1px solid var(--border);
   background: var(--surface);
 }
@@ -83,7 +83,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 14px;
+  padding: 8px 14px;
   background: var(--surface2);
   border-bottom: 1px solid var(--border);
   gap: 8px;
@@ -108,7 +108,7 @@ header {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 160px;
+  max-width: 180px;
 }
 
 .shield-btn {
@@ -155,7 +155,7 @@ header {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 14px 6px;
+  padding: 8px 14px 4px;
 }
 
 .section-title {
@@ -185,15 +185,15 @@ header {
 .categories {
   display: flex;
   flex-direction: column;
-  padding: 0 10px 10px;
-  gap: 3px;
+  padding: 0 10px 8px;
+  gap: 1px;
 }
 
 .cat-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 7px 8px;
+  padding: 5px 8px;
   border-radius: 7px;
   cursor: pointer;
   transition: background 0.1s;
@@ -277,15 +277,15 @@ header {
 
 /* ── Clean button ── */
 .action-section {
-  padding: 12px 14px 14px;
+  padding: 10px 14px 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .clean-btn {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   background: var(--red);
   color: #fff;
   border: none;
@@ -323,13 +323,74 @@ header {
   height: 16px;
 }
 
-/* ── Settings button ── */
-.settings-btn {
+/* ── Time range selector ── */
+.time-select {
+  margin-left: auto;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 5px;
+  color: var(--text-sec);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 6px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.time-select:hover,
+.time-select:focus {
+  border-color: var(--green);
+  color: var(--text);
+}
+
+.time-select option {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+/* ── Secure close button ── */
+.secure-close-btn {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
-  padding: 8px 12px;
+  padding: 7px 12px;
+  background: none;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  color: var(--text-sec);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.secure-close-btn:hover:not(:disabled) {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-dim);
+}
+
+.secure-close-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Bottom row ── */
+.bottom-row {
+  display: flex;
+  gap: 6px;
+}
+
+/* ── Settings button ── */
+.settings-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
   background: var(--surface2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -347,6 +408,27 @@ header {
 }
 
 .settings-btn:hover {
+  background: var(--surface);
+  border-color: var(--border2);
+  color: var(--text);
+}
+
+/* ── Incognito button ── */
+.incognito-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-sec);
+  cursor: pointer;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.incognito-btn:hover {
   background: var(--surface);
   border-color: var(--border2);
   color: var(--text);
