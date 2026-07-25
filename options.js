@@ -256,7 +256,7 @@ async function importSettings(file) {
       toSave.autoCleanOnStartup = s.autoCleanOnStartup;
     }
     if (typeof s.uiLang === 'string') {
-      const validLangs = ['auto', 'en', 'fr', 'es', 'pt_PT', 'de', 'it', 'ja'];
+      const validLangs = ['auto', 'en', 'fr', 'es', 'pt', 'de', 'it'];
       if (validLangs.includes(s.uiLang)) toSave.uiLang = s.uiLang;
     }
 

@@ -5,7 +5,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.md)
 [![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.fr.md)
 [![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.es.md)
-[![pt-pt](https://img.shields.io/badge/lang-pt--pt-green.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.pt-pt.md)
+[![pt](https://img.shields.io/badge/lang-pt-green.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.pt.md)
 [![de](https://img.shields.io/badge/lang-de-lightgrey.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.de.md)
 [![it](https://img.shields.io/badge/lang-it-008C45.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.it.md)
 
@@ -15,7 +15,7 @@
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
-![Languages](https://img.shields.io/badge/languages-7-orange?style=flat-square)
+![Languages](https://img.shields.io/badge/languages-6-orange?style=flat-square)
 
 </div>
 
@@ -50,7 +50,7 @@ Log out of everything you don't need. Stay logged into everything you do.
 - **Auto-clean on startup** — optionally wipe everything each time the browser launches
 - **Post-clean stats** — see exactly how many cookies and URLs were removed
 - **Backup & Restore** — export your settings to JSON and reimport them anytime
-- **Language selector** — switch the UI language directly in settings (EN, FR, ES, PT-PT, DE, IT, JA)
+- **Language selector** — switch the UI language directly in settings (EN, FR, ES, PT, DE, IT)
 - **Manifest V3** — built on the modern Chrome extension standard
 
 ---
