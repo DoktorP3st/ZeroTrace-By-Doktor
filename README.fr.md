@@ -8,11 +8,9 @@
 [![pt-pt](https://img.shields.io/badge/lang-pt--pt-green.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.pt-pt.md)
 [![de](https://img.shields.io/badge/lang-de-lightgrey.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.de.md)
 [![it](https://img.shields.io/badge/lang-it-008C45.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.it.md)
-[![ja](https://img.shields.io/badge/lang-ja-BC002D.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.ja.md)
-
 **Supprimez toutes vos traces de navigation en un clic — avec liste blanche pour protéger les sites importants.**
 
-![Version](https://img.shields.io/badge/version-1.2.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.3.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Licence](https://img.shields.io/badge/licence-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -46,8 +44,9 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 
 - **Nettoyage en 1 clic** — appuyez sur le bouton, c'est fait
 - **Liste blanche de sites** — protégez un domaine ; ses données survivent à chaque nettoyage
+- **Vue des cookies** — parcourez les cookies par domaine, protégez ou supprimez-les directement dans les paramètres
 - **5 catégories de nettoyage** — activez ou désactivez chacune indépendamment
-- **Nettoyage auto à la fermeture** — option pour tout nettoyer à la fermeture du navigateur
+- **Nettoyage auto au démarrage** — nettoie automatiquement à chaque lancement du navigateur
 - **Statistiques post-nettoyage** — cookies et URLs supprimés affichés après chaque nettoyage
 - **Sauvegarde & Restauration** — exportez vos paramètres en JSON et réimportez-les à tout moment
 - **Sélecteur de langue** — changez la langue de l'interface directement dans les paramètres
@@ -84,12 +83,11 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 
 **Nettoyer** — Activez les catégories souhaitées, puis appuyez sur **TOUT NETTOYER**.
 
-**Nettoyage auto à la fermeture** — Activez dans les Paramètres pour nettoyer automatiquement.
+**Nettoyage auto au démarrage** — Activez dans les Paramètres pour nettoyer automatiquement à chaque lancement.
+
+**Vue des cookies** — Ouvrez les Paramètres pour parcourir les cookies par domaine, protéger un site d'un clic ou supprimer ses cookies immédiatement.
 
 **Sauvegarde & Restauration** — Exportez vos paramètres en JSON, réimportez sur n'importe quel appareil.
-
-> **Conseil — Pour des résultats optimaux, repartez sur une base propre**
-> Pour un nettoyage complet, commencez par effacer toutes les données du navigateur manuellement (Paramètres → Effacer les données de navigation), puis reconnectez-vous site par site en ajoutant chacun à la liste blanche. Cela évite que d'anciens cookies cachés ne persistent entre les nettoyages.
 
 ---
 

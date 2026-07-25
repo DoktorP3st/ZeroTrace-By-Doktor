@@ -23,8 +23,8 @@
   "protected_sites":    { "message": "Siti Protetti" },
   "subtitle":           { "message": "I dati di questi siti non vengono mai eliminati" },
   "behavior":           { "message": "COMPORTAMENTO" },
-  "auto_clean_name":    { "message": "Pulizia automatica alla chiusura" },
-  "auto_clean_desc":    { "message": "Pulisce automaticamente alla chiusura del browser" },
+  "auto_clean_name":    { "message": "Pulizia automatica all'avvio" },
+  "auto_clean_desc":    { "message": "Pulisce automaticamente le categorie selezionate a ogni avvio del browser" },
   "language":           { "message": "Lingua" },
   "domain_placeholder": { "message": "dominio.it" },
   "add":                { "message": "Aggiungi" },
@@ -38,6 +38,10 @@
   "status_imported":    { "message": "Impostazioni importate con successo" },
   "import_failed":      { "message": "Importazione fallita" },
   "confirm_clear_all":  { "message": "Rimuovere tutti i siti protetti? I loro dati verranno puliti alla prossima pulizia." },
+  "cookies_section":    { "message": "COOKIE DEL BROWSER" },
+  "cookies_search":     { "message": "Cerca dominio..." },
+  "cookies_no_results": { "message": "Nessun cookie trovato" },
+  "delete_domain":      { "message": "Elimina" },
   "fresh_start_title":  { "message": "Suggerimento: inizia da zero per i migliori risultati" },
   "fresh_start_desc":   { "message": "Per una pulizia completa, cancella prima tutti i dati del browser manualmente (Impostazioni → Cancella dati di navigazione), poi accedi nuovamente a ogni sito importante uno alla volta e aggiungilo alla whitelist. Questo impedisce che vecchi cookie rimangano nascosti." }
 }

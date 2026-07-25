@@ -8,11 +8,9 @@
 [![pt-pt](https://img.shields.io/badge/lang-pt--pt-green.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.pt-pt.md)
 [![de](https://img.shields.io/badge/lang-de-lightgrey.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.de.md)
 [![it](https://img.shields.io/badge/lang-it-008C45.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.it.md)
-[![ja](https://img.shields.io/badge/lang-ja-BC002D.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.ja.md)
-
 **Apague todos os rastros do navegador com um clique — com lista branca para proteger os sites importantes.**
 
-![Versão](https://img.shields.io/badge/versão-1.2.0-e63946?style=flat-square)
+![Versão](https://img.shields.io/badge/versão-1.3.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Licença](https://img.shields.io/badge/licença-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -44,8 +42,9 @@ ZeroTrace é uma extensão Chrome que apaga instantaneamente todos os rastros de
 
 - **Limpeza com 1 clique** — prima o botão, pronto
 - **Lista branca de sites** — proteja domínios; os seus dados sobrevivem a cada limpeza
+- **Visualizador de cookies** — navegue pelos cookies por domínio, proteja-os ou elimine-os diretamente nas definições
 - **5 categorias** — ative ou desative cada uma de forma independente
-- **Limpeza automática ao fechar** — limpa automaticamente quando o navegador fecha
+- **Limpeza automática no arranque** — limpa automaticamente cada vez que o navegador arranca
 - **Estatísticas pós-limpeza** — cookies e URLs eliminados mostrados após cada limpeza
 - **Cópia de segurança e restauro** — exporte e importe as definições em JSON
 - **Seletor de idioma** — mude o idioma da interface diretamente nas definições
@@ -71,12 +70,6 @@ ZeroTrace é uma extensão Chrome que apaga instantaneamente todos os rastros de
 2. Abra o Chrome e vá a `chrome://extensions/`
 3. Ative o **Modo de programador**
 4. Clique em **Carregar extensão não empacotada** e selecione a pasta
-
----
-
-## Dica — Comece do zero para melhores resultados
-
-Para uma limpeza completa, apague primeiro todos os dados do navegador manualmente (Definições → Limpar dados de navegação), depois volte a iniciar sessão site por site e adicione cada um à lista branca. Isto evita que cookies antigos e ocultos persistam entre limpezas.
 
 ---
 

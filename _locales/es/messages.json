@@ -23,8 +23,8 @@
   "protected_sites":    { "message": "Sitios Protegidos" },
   "subtitle":           { "message": "Los datos de estos sitios nunca se eliminan" },
   "behavior":           { "message": "COMPORTAMIENTO" },
-  "auto_clean_name":    { "message": "Limpieza automática al cerrar" },
-  "auto_clean_desc":    { "message": "Limpia automáticamente al cerrar el navegador" },
+  "auto_clean_name":    { "message": "Limpieza automática al iniciar" },
+  "auto_clean_desc":    { "message": "Limpia automáticamente las categorías seleccionadas cada vez que el navegador arranca" },
   "language":           { "message": "Idioma" },
   "domain_placeholder": { "message": "dominio.com" },
   "add":                { "message": "Añadir" },
@@ -38,6 +38,10 @@
   "status_imported":    { "message": "Configuración importada con éxito" },
   "import_failed":      { "message": "Error al importar" },
   "confirm_clear_all":  { "message": "¿Eliminar todos los sitios protegidos? Sus datos se limpiarán en la próxima limpieza." },
+  "cookies_section":    { "message": "COOKIES DEL NAVEGADOR" },
+  "cookies_search":     { "message": "Buscar dominio..." },
+  "cookies_no_results": { "message": "No se encontraron cookies" },
+  "delete_domain":      { "message": "Eliminar" },
   "fresh_start_title":  { "message": "Consejo: empieza desde cero para mejores resultados" },
   "fresh_start_desc":   { "message": "Para una limpieza completa, borra primero todos los datos del navegador manualmente (Configuración → Borrar datos de navegación), luego vuelve a iniciar sesión en cada sitio importante uno a uno y añádelo a la lista blanca. Esto evita que antiguas cookies permanezcan ocultas." }
 }

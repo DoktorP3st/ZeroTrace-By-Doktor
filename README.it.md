@@ -8,11 +8,9 @@
 [![pt-pt](https://img.shields.io/badge/lang-pt--pt-green.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.pt-pt.md)
 [![de](https://img.shields.io/badge/lang-de-lightgrey.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.de.md)
 [![it](https://img.shields.io/badge/lang-it-008C45.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.it.md)
-[![ja](https://img.shields.io/badge/lang-ja-BC002D.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.ja.md)
-
 **Cancella tutte le tracce del browser in un clic — con lista bianca per proteggere i siti importanti.**
 
-![Versione](https://img.shields.io/badge/versione-1.2.0-e63946?style=flat-square)
+![Versione](https://img.shields.io/badge/versione-1.3.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Licenza](https://img.shields.io/badge/licenza-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -44,8 +42,9 @@ ZeroTrace è un'estensione Chrome che cancella istantaneamente tutte le tracce d
 
 - **Pulizia con 1 clic** — premi il pulsante, fatto
 - **Lista bianca** — proteggi i domini; i loro dati sopravvivono a ogni pulizia
+- **Visualizzatore cookie** — sfoglia i cookie per dominio, proteggili o eliminali direttamente nelle impostazioni
 - **5 categorie** — attiva o disattiva ciascuna in modo indipendente
-- **Pulizia automatica alla chiusura** — pulisce automaticamente alla chiusura del browser
+- **Pulizia automatica all'avvio** — pulisce automaticamente le categorie selezionate a ogni avvio del browser
 - **Statistiche post-pulizia** — cookie e URL eliminati mostrati dopo ogni pulizia
 - **Backup e ripristino** — esporta e importa le impostazioni in JSON
 - **Selettore lingua** — cambia la lingua dell'interfaccia direttamente nelle impostazioni
@@ -71,12 +70,6 @@ ZeroTrace è un'estensione Chrome che cancella istantaneamente tutte le tracce d
 2. Apri Chrome e vai su `chrome://extensions/`
 3. Attiva la **Modalità sviluppatore**
 4. Clicca su **Carica estensione non pacchettizzata** e seleziona la cartella
-
----
-
-## Consiglio — Riparti da zero per risultati ottimali
-
-Per una pulizia completa, cancella prima tutti i dati del browser manualmente (Impostazioni → Cancella dati di navigazione), poi accedi di nuovo a ogni sito importante uno per uno e aggiungilo alla lista bianca. Questo evita che vecchi cookie nascosti persistano tra le pulizie.
 
 ---
 

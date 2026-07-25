@@ -8,11 +8,9 @@
 [![pt-pt](https://img.shields.io/badge/lang-pt--pt-green.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.pt-pt.md)
 [![de](https://img.shields.io/badge/lang-de-lightgrey.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.de.md)
 [![it](https://img.shields.io/badge/lang-it-008C45.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.it.md)
-[![ja](https://img.shields.io/badge/lang-ja-BC002D.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.ja.md)
-
 **Wipe all browser traces in one click — with whitelist protection for the sites you care about.**
 
-![Version](https://img.shields.io/badge/version-1.2.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.3.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -46,8 +44,9 @@ Log out of everything you don't need. Stay logged into everything you do.
 
 - **One-click cleaning** — hit the button, done
 - **Site whitelist** — protect any domain; their cookies and data survive every wipe
+- **Cookie viewer** — browse all cookies by domain, protect or delete them directly in settings
 - **5 cleaning categories** — toggle each one independently
-- **Auto-clean on close** — optionally wipe everything when the browser closes
+- **Auto-clean on startup** — optionally wipe everything each time the browser launches
 - **Post-clean stats** — see exactly how many cookies and URLs were removed
 - **Backup & Restore** — export your settings to JSON and reimport them anytime
 - **Language selector** — switch the UI language directly in settings (EN, FR, ES, PT-PT, DE, IT, JA)
@@ -84,12 +83,11 @@ Log out of everything you don't need. Stay logged into everything you do.
 
 **Cleaning** — Toggle the categories you want, then press **CLEAN ALL**.
 
-**Auto-clean on close** — Enable in Settings to clean automatically when Chrome closes.
+**Auto-clean on startup** — Enable in Settings to wipe automatically each time the browser launches.
+
+**Cookie viewer** — Open Settings to browse all cookies by domain, protect a site with one click, or delete its cookies immediately.
 
 **Backup & Restore** — Export your settings to JSON, reimport on any device.
-
-> **Tip — Get the best results with a clean slate**
-> For a complete reset, manually clear all browser data first (Settings → Clear browsing data), then re-login to each important site one by one and add it to the whitelist. This prevents old hidden cookies from persisting between cleans.
 
 ---
 

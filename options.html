@@ -95,6 +95,23 @@
         </button>
       </section>
 
+      <section class="cookie-section">
+        <div class="cookie-section-top">
+          <span class="section-label" data-i18n="cookies_section">BROWSER COOKIES</span>
+          <button id="cookies-refresh-btn" class="icon-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <polyline points="23 4 23 10 17 10"/>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+            </svg>
+          </button>
+        </div>
+        <input type="text" id="cookie-search" class="cookie-search" data-i18n-placeholder="cookies_search" placeholder="Search domains..." autocomplete="off" spellcheck="false">
+        <div id="cookie-list" class="cookie-list">
+          <p id="cookie-empty" class="cookie-empty" data-i18n="cookies_no_results">No cookies found</p>
+        </div>
+        <p id="cookies-summary" class="cookies-summary"></p>
+      </section>
+
       <section class="io-section">
         <div class="section-label" data-i18n="backup_restore">BACKUP &amp; RESTORE</div>
         <div class="io-row">

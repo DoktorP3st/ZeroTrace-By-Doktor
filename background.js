@@ -72,15 +72,8 @@ async function performClean(whitelist, categories) {
   await Promise.allSettled(tasks);
 }
 
-chrome.windows.onRemoved.addListener(async () => {
-  const windows = await chrome.windows.getAll();
-  if (windows.length > 0) return;
-
-  const data = await chrome.storage.sync.get(['autoCleanOnClose', 'whitelist', 'selectedCategories']);
-  if (!data.autoCleanOnClose) return;
-
-  const whitelist  = data.whitelist          || [];
-  const categories = data.selectedCategories || ['history', 'cache', 'cookies', 'storage'];
-
-  await performClean(whitelist, categories);
+chrome.runtime.onStartup.addListener(async () => {
+  const data = await chrome.storage.sync.get(['autoCleanOnStartup', 'whitelist', 'selectedCategories']);
+  if (!data.autoCleanOnStartup) return;
+  await performClean(data.whitelist || [], data.selectedCategories || ['history', 'cache', 'cookies', 'storage']);
 });

@@ -23,8 +23,8 @@
   "protected_sites":    { "message": "Geschützte Seiten" },
   "subtitle":           { "message": "Daten dieser Seiten werden nie gelöscht" },
   "behavior":           { "message": "VERHALTEN" },
-  "auto_clean_name":    { "message": "Automatisch beim Schließen bereinigen" },
-  "auto_clean_desc":    { "message": "Löscht automatisch beim Schließen des Browsers" },
+  "auto_clean_name":    { "message": "Automatisch beim Start bereinigen" },
+  "auto_clean_desc":    { "message": "Löscht beim Start des Browsers automatisch die ausgewählten Kategorien" },
   "language":           { "message": "Sprache" },
   "domain_placeholder": { "message": "domain.de" },
   "add":                { "message": "Hinzufügen" },
@@ -38,6 +38,10 @@
   "status_imported":    { "message": "Einstellungen erfolgreich importiert" },
   "import_failed":      { "message": "Import fehlgeschlagen" },
   "confirm_clear_all":  { "message": "Alle geschützten Seiten entfernen? Ihre Daten werden bei der nächsten Bereinigung gelöscht." },
+  "cookies_section":    { "message": "BROWSER-COOKIES" },
+  "cookies_search":     { "message": "Domain suchen..." },
+  "cookies_no_results": { "message": "Keine Cookies gefunden" },
+  "delete_domain":      { "message": "Löschen" },
   "fresh_start_title":  { "message": "Tipp: Neustart für beste Ergebnisse" },
   "fresh_start_desc":   { "message": "Für eine vollständige Bereinigung lösche zuerst alle Browserdaten manuell (Einstellungen → Browserdaten löschen), melde dich dann bei jeder wichtigen Seite neu an und füge sie der Whitelist hinzu. So bleiben keine alten Cookies versteckt." }
 }

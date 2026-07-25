@@ -23,8 +23,8 @@
   "protected_sites":    { "message": "Sites Protégés" },
   "subtitle":           { "message": "Les données de ces sites ne sont jamais supprimées" },
   "behavior":           { "message": "COMPORTEMENT" },
-  "auto_clean_name":    { "message": "Nettoyage auto à la fermeture" },
-  "auto_clean_desc":    { "message": "Nettoie automatiquement à la fermeture du navigateur" },
+  "auto_clean_name":    { "message": "Nettoyage auto au démarrage" },
+  "auto_clean_desc":    { "message": "Nettoie automatiquement les catégories sélectionnées à chaque démarrage du navigateur" },
   "language":           { "message": "Langue" },
   "domain_placeholder": { "message": "domaine.com" },
   "add":                { "message": "Ajouter" },
@@ -38,6 +38,10 @@
   "status_imported":    { "message": "Paramètres importés avec succès" },
   "import_failed":      { "message": "Échec de l'importation" },
   "confirm_clear_all":  { "message": "Supprimer tous les sites protégés ? Leurs données seront nettoyées au prochain nettoyage." },
+  "cookies_section":    { "message": "COOKIES DU NAVIGATEUR" },
+  "cookies_search":     { "message": "Rechercher un domaine..." },
+  "cookies_no_results": { "message": "Aucun cookie trouvé" },
+  "delete_domain":      { "message": "Supprimer" },
   "fresh_start_title":  { "message": "Conseil : repartir de zéro pour de meilleurs résultats" },
   "fresh_start_desc":   { "message": "Pour un nettoyage complet, efface d'abord toutes les données du navigateur manuellement (Paramètres → Supprimer les données de navigation), puis reconnecte-toi sur chaque site important un par un et ajoute-le à la whitelist. Cela évite que de vieux cookies restent cachés." }
 }

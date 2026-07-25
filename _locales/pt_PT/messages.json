@@ -23,8 +23,8 @@
   "protected_sites":    { "message": "Sites Protegidos" },
   "subtitle":           { "message": "Os dados destes sites nunca são eliminados" },
   "behavior":           { "message": "COMPORTAMENTO" },
-  "auto_clean_name":    { "message": "Limpeza automática ao fechar" },
-  "auto_clean_desc":    { "message": "Limpa automaticamente quando o navegador fecha" },
+  "auto_clean_name":    { "message": "Limpeza automática no arranque" },
+  "auto_clean_desc":    { "message": "Limpa automaticamente as categorias selecionadas cada vez que o navegador arranca" },
   "language":           { "message": "Idioma" },
   "domain_placeholder": { "message": "dominio.pt" },
   "add":                { "message": "Adicionar" },
@@ -38,6 +38,10 @@
   "status_imported":    { "message": "Definições importadas com sucesso" },
   "import_failed":      { "message": "Falha na importação" },
   "confirm_clear_all":  { "message": "Remover todos os sites protegidos? Os seus dados serão limpos na próxima limpeza." },
+  "cookies_section":    { "message": "COOKIES DO NAVEGADOR" },
+  "cookies_search":     { "message": "Pesquisar domínio..." },
+  "cookies_no_results": { "message": "Nenhum cookie encontrado" },
+  "delete_domain":      { "message": "Eliminar" },
   "fresh_start_title":  { "message": "Dica: comece do zero para melhores resultados" },
   "fresh_start_desc":   { "message": "Para uma limpeza completa, apaga primeiro todos os dados do navegador manualmente (Definições → Limpar dados de navegação), depois volta a iniciar sessão em cada site importante um a um e adiciona-o à lista branca. Isto impede que cookies antigos fiquem escondidos." }
 }

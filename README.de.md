@@ -8,11 +8,9 @@
 [![pt-pt](https://img.shields.io/badge/lang-pt--pt-green.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.pt-pt.md)
 [![de](https://img.shields.io/badge/lang-de-lightgrey.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.de.md)
 [![it](https://img.shields.io/badge/lang-it-008C45.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.it.md)
-[![ja](https://img.shields.io/badge/lang-ja-BC002D.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.ja.md)
-
 **Alle Browser-Spuren per Klick löschen — mit Whitelist-Schutz für wichtige Seiten.**
 
-![Version](https://img.shields.io/badge/Version-1.2.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.3.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Lizenz](https://img.shields.io/badge/Lizenz-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -44,8 +42,9 @@ ZeroTrace ist eine Chrome-Erweiterung, die alle Browser-Spuren sofort löscht �
 
 - **Ein-Klick-Bereinigung** — Schaltfläche drücken, fertig
 - **Whitelist** — Domains schützen; deren Daten überleben jede Bereinigung
+- **Cookie-Viewer** — Cookies nach Domain durchsuchen, schützen oder direkt in den Einstellungen löschen
 - **5 Kategorien** — jede einzeln aktivieren oder deaktivieren
-- **Automatisch beim Schließen bereinigen** — automatisch beim Schließen des Browsers bereinigen
+- **Automatisch beim Start bereinigen** — löscht beim Start des Browsers automatisch die ausgewählten Kategorien
 - **Statistiken nach der Bereinigung** — gelöschte Cookies und URLs angezeigt
 - **Sicherung & Wiederherstellung** — Einstellungen als JSON exportieren und importieren
 - **Sprachauswahl** — Sprache der Oberfläche direkt in den Einstellungen wechseln
@@ -71,12 +70,6 @@ ZeroTrace ist eine Chrome-Erweiterung, die alle Browser-Spuren sofort löscht �
 2. Chrome öffnen und zu `chrome://extensions/` navigieren
 3. **Entwicklermodus** aktivieren (oben rechts)
 4. **Entpackte Erweiterung laden** klicken und den Projektordner auswählen
-
----
-
-## Tipp — Für beste Ergebnisse neu starten
-
-Für eine vollständige Bereinigung zuerst alle Browserdaten manuell löschen (Einstellungen → Browserdaten löschen), dann bei jedem wichtigen Dienst neu anmelden und ihn einzeln zur Whitelist hinzufügen. So wird verhindert, dass alte versteckte Cookies zwischen den Bereinigungen erhalten bleiben.
 
 ---
 
