@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ZeroTrace — Settings</title>
+  <title>ZeroTrace — Paramètres</title>
   <link rel="stylesheet" href="options.css">
 </head>
 <body>
@@ -14,89 +14,147 @@
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
         <div>
-          <h1 data-i18n="protected_sites">Protected Sites</h1>
-          <p class="subtitle"><span data-i18n="subtitle">Data from these sites is never deleted</span></p>
+          <h1>ZeroTrace</h1>
+          <p class="subtitle">by Pestovich</p>
         </div>
       </div>
       <span id="total-count" class="total-badge">0 sites</span>
     </header>
 
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="settings">Paramètres</button>
+      <button class="tab-btn" data-tab="whitelist">Whitelist</button>
+      <button class="tab-btn" data-tab="cookies">Cookies</button>
+    </nav>
+
     <main>
 
-      <section class="behavior-section">
-        <div class="section-label" data-i18n="behavior">BEHAVIOR</div>
+      <!-- ── TAB : Paramètres ── -->
+      <div id="tab-settings" class="tab-panel active">
 
-        <label class="behavior-item">
-          <div class="behavior-info">
-            <span class="behavior-name" data-i18n="auto_clean_name">Auto-clean on browser close</span>
-            <span class="behavior-desc" data-i18n="auto_clean_desc">Automatically wipe selected categories when the browser closes</span>
-          </div>
-          <div class="toggle-track" id="auto-clean-toggle">
-            <div class="toggle-thumb"></div>
-          </div>
-        </label>
+        <section class="behavior-section">
+          <div class="section-label" data-i18n="behavior">BEHAVIOR</div>
 
-        <div class="behavior-item" style="cursor:default;">
-          <div class="behavior-info">
-            <span class="behavior-name" data-i18n="language">Language</span>
-          </div>
-          <select id="lang-select" class="lang-select">
-            <option value="auto">Auto</option>
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-            <option value="es">Español</option>
-            <option value="pt">Português</option>
-            <option value="de">Deutsch</option>
-            <option value="it">Italiano</option>
-          </select>
-        </div>
-      </section>
+          <label class="behavior-item">
+            <div class="behavior-info">
+              <span class="behavior-name" data-i18n="auto_clean_name">Auto-clean on startup</span>
+              <span class="behavior-desc" data-i18n="auto_clean_desc">Automatically wipe selected categories each time the browser starts</span>
+            </div>
+            <div class="toggle-track" id="auto-clean-toggle">
+              <div class="toggle-thumb"></div>
+            </div>
+          </label>
 
-      <section class="add-section">
-        <div class="input-row">
-          <input
-            type="text"
-            id="add-input"
-            data-i18n-placeholder="domain_placeholder"
-            placeholder="domain.com"
-            autocomplete="off"
-            spellcheck="false"
-          />
-          <button id="add-btn" class="add-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="12" y1="5" x2="12" y2="19"/>
-              <line x1="5" y1="12" x2="19" y2="12"/>
+          <div class="behavior-item" style="cursor:default;">
+            <div class="behavior-info">
+              <span class="behavior-name" data-i18n="language">Language</span>
+            </div>
+            <select id="lang-select" class="lang-select">
+              <option value="auto">Auto</option>
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="es">Español</option>
+              <option value="pt">Português</option>
+              <option value="de">Deutsch</option>
+              <option value="it">Italiano</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="io-section">
+          <div class="section-label" data-i18n="backup_restore">BACKUP &amp; RESTORE</div>
+          <div class="io-row">
+            <button id="export-btn" class="io-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span data-i18n="export_settings">Export settings</span>
+            </button>
+            <label class="io-btn io-import-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 5 17 10"/>
+                <line x1="12" y1="5" x2="12" y2="17"/>
+              </svg>
+              <span data-i18n="import_settings">Import settings</span>
+              <input type="file" id="import-input" accept=".json" hidden>
+            </label>
+          </div>
+          <p id="io-status" class="io-status hidden"></p>
+        </section>
+
+        <section class="tip-section">
+          <div class="tip-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
-            <span data-i18n="add">Add</span>
+          </div>
+          <div class="tip-content">
+            <p class="tip-title" data-i18n="fresh_start_title">Tip: start from a clean slate for best results</p>
+            <p class="tip-desc" data-i18n="fresh_start_desc">For a complete clean, first clear all browser data manually, then re-login to each important site and add it to the whitelist.</p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ── TAB : Whitelist ── -->
+      <div id="tab-whitelist" class="tab-panel">
+
+        <section class="add-section">
+          <div class="input-row">
+            <input
+              type="text"
+              id="add-input"
+              data-i18n-placeholder="domain_placeholder"
+              placeholder="domain.com"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="add-btn" class="add-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+              <span data-i18n="add">Add</span>
+            </button>
+          </div>
+          <p id="add-error" class="add-error hidden"></p>
+        </section>
+
+        <section class="list-section">
+          <div id="empty-state" class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <p data-i18n="empty_title">No protected sites yet</p>
+            <span data-i18n="empty_desc">Add a domain above or click "Protect" in the popup when visiting a site</span>
+          </div>
+          <ul id="site-list" class="site-list"></ul>
+        </section>
+
+        <section id="danger-section" class="danger-section hidden">
+          <button id="clear-all-btn" class="clear-all-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"/>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+            </svg>
+            <span data-i18n="remove_all">Remove all protected sites</span>
           </button>
-        </div>
-        <p id="add-error" class="add-error hidden"></p>
-      </section>
+        </section>
 
-      <section class="list-section">
-        <div id="empty-state" class="empty-state">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-          <p data-i18n="empty_title">No protected sites yet</p>
-          <span data-i18n="empty_desc">Add a domain above or click "Protect" in the popup when visiting a site</span>
-        </div>
-        <ul id="site-list" class="site-list"></ul>
-      </section>
+      </div>
 
-      <section id="danger-section" class="danger-section hidden">
-        <button id="clear-all-btn" class="clear-all-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="3 6 5 6 21 6"/>
-            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
-          </svg>
-          <span data-i18n="remove_all">Remove all protected sites</span>
-        </button>
-      </section>
+      <!-- ── TAB : Cookies ── -->
+      <div id="tab-cookies" class="tab-panel">
 
-      <section class="cookie-section">
-        <div class="cookie-section-top">
-          <span class="section-label" data-i18n="cookies_section">BROWSER COOKIES</span>
+        <div class="cookies-toolbar">
+          <input type="text" id="cookie-search" class="cookie-search"
+                 data-i18n-placeholder="cookies_search" placeholder="Search domains..."
+                 autocomplete="off" spellcheck="false">
           <button id="cookies-refresh-btn" class="icon-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <polyline points="23 4 23 10 17 10"/>
@@ -104,50 +162,42 @@
             </svg>
           </button>
         </div>
-        <input type="text" id="cookie-search" class="cookie-search" data-i18n-placeholder="cookies_search" placeholder="Search domains..." autocomplete="off" spellcheck="false">
-        <div id="cookie-list" class="cookie-list">
-          <p id="cookie-empty" class="cookie-empty" data-i18n="cookies_no_results">No cookies found</p>
+
+        <div class="cookie-columns">
+
+          <div class="cookie-col" id="col-left">
+            <div class="col-header">
+              <span class="section-label">TOUS LES SITES</span>
+              <div class="col-header-actions">
+                <button id="clean-all-btn" class="col-clean-btn" title="Supprimer tous les cookies non protégés">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"/>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+                  </svg>
+                </button>
+                <span id="count-all" class="col-count">0</span>
+              </div>
+            </div>
+            <div class="col-body" id="col-all-body">
+              <p id="col-all-empty" class="col-empty">Aucun cookie</p>
+            </div>
+          </div>
+
+          <div class="cookie-col" id="col-right">
+            <div class="col-header">
+              <span class="section-label">PROT&#201;G&#201;S</span>
+              <span id="count-protected" class="col-count">0</span>
+            </div>
+            <div class="col-body" id="col-protected-body">
+              <p id="col-protected-empty" class="col-empty">Aucun site protégé</p>
+            </div>
+          </div>
+
         </div>
+
         <p id="cookies-summary" class="cookies-summary"></p>
-      </section>
 
-      <section class="io-section">
-        <div class="section-label" data-i18n="backup_restore">BACKUP &amp; RESTORE</div>
-        <div class="io-row">
-          <button id="export-btn" class="io-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            <span data-i18n="export_settings">Export settings</span>
-          </button>
-          <label class="io-btn io-import-label">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 5 17 10"/>
-              <line x1="12" y1="5" x2="12" y2="17"/>
-            </svg>
-            <span data-i18n="import_settings">Import settings</span>
-            <input type="file" id="import-input" accept=".json" hidden>
-          </label>
-        </div>
-        <p id="io-status" class="io-status hidden"></p>
-      </section>
-
-      <section class="tip-section">
-        <div class="tip-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="8" x2="12" y2="12"/>
-            <line x1="12" y1="16" x2="12.01" y2="16"/>
-          </svg>
-        </div>
-        <div class="tip-content">
-          <p class="tip-title" data-i18n="fresh_start_title">Tip: start clean for best results</p>
-          <p class="tip-desc" data-i18n="fresh_start_desc">For a complete clean, first clear all browser data manually, then re-login to each important site and add it to the whitelist.</p>
-        </div>
-      </section>
+      </div>
 
     </main>
 
