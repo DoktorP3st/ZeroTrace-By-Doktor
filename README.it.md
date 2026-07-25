@@ -14,7 +14,7 @@
 ![Versione](https://img.shields.io/badge/versione-1.5.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Licenza](https://img.shields.io/badge/licenza-MIT-6b7491?style=flat-square)
-![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
+![Chrome](https://img.shields.io/badge/Chrome-Compatible-4285F4?style=flat-square&logo=googlechrome&logoColor=white) ![Brave](https://img.shields.io/badge/Brave-Compatible-FB542B?style=flat-square&logo=brave&logoColor=white)
 ![Lingue](https://img.shields.io/badge/lingue-6-orange?style=flat-square)
 
 </div>
@@ -76,9 +76,11 @@ ZeroTrace è un'estensione Chrome che cancella istantaneamente tutte le tracce d
 ## Installazione (modalità sviluppatore)
 
 1. Clona o scarica questo repository
-2. Apri Chrome e vai su `chrome://extensions/`
+2. Apri Chrome → `chrome://extensions/` o Brave → `brave://extensions/`
 3. Attiva la **Modalità sviluppatore**
 4. Clicca su **Carica estensione non pacchettizzata** e seleziona la cartella
+
+> Compatibile con qualsiasi browser basato su Chromium: Chrome, Brave, Edge, Opera, Vivaldi.
 
 ---
 

@@ -14,7 +14,7 @@
 ![Version](https://img.shields.io/badge/version-1.5.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Licence](https://img.shields.io/badge/licence-MIT-6b7491?style=flat-square)
-![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
+![Chrome](https://img.shields.io/badge/Chrome-Compatible-4285F4?style=flat-square&logo=googlechrome&logoColor=white) ![Brave](https://img.shields.io/badge/Brave-Compatible-FB542B?style=flat-square&logo=brave&logoColor=white)
 ![Langues](https://img.shields.io/badge/langues-6-orange?style=flat-square)
 
 </div>
@@ -78,9 +78,11 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 ## Installation (mode développeur)
 
 1. Clonez ou téléchargez ce dépôt
-2. Ouvrez Chrome et allez sur `chrome://extensions/`
+2. Ouvrez Chrome → `chrome://extensions/` ou Brave → `brave://extensions/`
 3. Activez le **Mode développeur** (interrupteur en haut à droite)
 4. Cliquez sur **Charger l'extension non empaquetée** et sélectionnez le dossier
+
+> Compatible avec tous les navigateurs Chromium : Chrome, Brave, Edge, Opera, Vivaldi.
 
 ---
 

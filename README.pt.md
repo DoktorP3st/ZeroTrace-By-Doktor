@@ -14,7 +14,7 @@
 ![Versão](https://img.shields.io/badge/versão-1.5.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Licença](https://img.shields.io/badge/licença-MIT-6b7491?style=flat-square)
-![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
+![Chrome](https://img.shields.io/badge/Chrome-Compatible-4285F4?style=flat-square&logo=googlechrome&logoColor=white) ![Brave](https://img.shields.io/badge/Brave-Compatible-FB542B?style=flat-square&logo=brave&logoColor=white)
 ![Idiomas](https://img.shields.io/badge/idiomas-6-orange?style=flat-square)
 
 </div>
@@ -76,9 +76,11 @@ ZeroTrace é uma extensão Chrome que apaga instantaneamente todos os rastros de
 ## Instalação (modo programador)
 
 1. Clone ou descarregue este repositório
-2. Abra o Chrome e vá a `chrome://extensions/`
+2. Abra o Chrome → `chrome://extensions/` ou Brave → `brave://extensions/`
 3. Ative o **Modo de programador**
 4. Clique em **Carregar extensão não empacotada** e selecione a pasta
+
+> Compatível com qualquer navegador baseado em Chromium: Chrome, Brave, Edge, Opera, Vivaldi.
 
 ---
 

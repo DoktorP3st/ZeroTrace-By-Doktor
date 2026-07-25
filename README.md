@@ -14,7 +14,7 @@
 ![Version](https://img.shields.io/badge/version-1.5.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-6b7491?style=flat-square)
-![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
+![Chrome](https://img.shields.io/badge/Chrome-Compatible-4285F4?style=flat-square&logo=googlechrome&logoColor=white) ![Brave](https://img.shields.io/badge/Brave-Compatible-FB542B?style=flat-square&logo=brave&logoColor=white)
 ![Languages](https://img.shields.io/badge/languages-6-orange?style=flat-square)
 
 </div>
@@ -78,9 +78,11 @@ Log out of everything you don't need. Stay logged into everything you do.
 ## Install (developer mode)
 
 1. Clone or download this repository
-2. Open Chrome and go to `chrome://extensions/`
+2. Open Chrome → `chrome://extensions/` or Brave → `brave://extensions/`
 3. Enable **Developer mode** (top-right toggle)
 4. Click **Load unpacked** and select the project folder
+
+> Works on any Chromium-based browser: Chrome, Brave, Edge, Opera, Vivaldi.
 
 ---
 
