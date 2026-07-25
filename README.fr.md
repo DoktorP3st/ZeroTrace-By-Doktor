@@ -104,6 +104,19 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 
 ---
 
+## Confidentialité
+
+ZeroTrace fonctionne **entièrement en local** — aucune donnée n'est collectée, transmise ou stockée sur des serveurs externes.
+
+- Aucun analytics, aucune télémétrie, aucun tracking
+- Aucun script injecté dans les pages web
+- Les paramètres (liste blanche, préférences) se synchronisent via votre propre compte Google via `chrome.storage.sync` — ils ne transitent par aucun serveur tiers
+- Toutes les opérations de nettoyage s'exécutent directement dans votre navigateur, rien ne quitte votre machine
+
+**Le code source est entièrement auditable** — chaque ligne est dans ce dépôt.
+
+---
+
 ## Licence
 
 MIT — libre d'utilisation, de modification et de distribution.

@@ -104,6 +104,19 @@ Log out of everything you don't need. Stay logged into everything you do.
 
 ---
 
+## Privacy
+
+ZeroTrace operates **entirely locally** — no data is ever collected, transmitted, or stored on external servers.
+
+- No analytics, no telemetry, no tracking of any kind
+- No content scripts injected into web pages
+- Settings (whitelist, preferences) sync via your own Google account through `chrome.storage.sync` — they never reach any third-party server
+- All cleaning operations run directly in your browser, nothing leaves your machine
+
+**The source code is fully auditable** — every single line is in this repository.
+
+---
+
 ## License
 
 MIT — free to use, modify, and distribute.

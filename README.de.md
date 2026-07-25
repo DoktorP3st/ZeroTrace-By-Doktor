@@ -84,6 +84,19 @@ ZeroTrace ist eine Chrome-Erweiterung, die alle Browser-Spuren sofort löscht �
 
 ---
 
+## Datenschutz
+
+ZeroTrace funktioniert **vollständig lokal** — es werden keine Daten gesammelt, übertragen oder auf externen Servern gespeichert.
+
+- Keine Analytics, keine Telemetrie, kein Tracking jeglicher Art
+- Keine Scripts, die in Webseiten injiziert werden
+- Einstellungen (Whitelist, Präferenzen) werden über das eigene Google-Konto via `chrome.storage.sync` synchronisiert — sie gelangen nie zu Drittanbieter-Servern
+- Alle Bereinigungsvorgänge laufen direkt im Browser ab, nichts verlässt das Gerät
+
+**Der Quellcode ist vollständig prüfbar** — jede Zeile befindet sich in diesem Repository.
+
+---
+
 ## Lizenz
 
 MIT — frei zu verwenden, zu ändern und zu verteilen.
