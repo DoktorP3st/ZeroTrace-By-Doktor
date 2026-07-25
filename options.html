@@ -25,15 +25,32 @@
 
       <section class="behavior-section">
         <div class="section-label" data-i18n="behavior">BEHAVIOR</div>
+
         <label class="behavior-item">
           <div class="behavior-info">
             <span class="behavior-name" data-i18n="auto_clean_name">Auto-clean on browser close</span>
-            <span class="behavior-desc" data-i18n="auto_clean_desc">Automatically wipe selected categories when Chrome closes</span>
+            <span class="behavior-desc" data-i18n="auto_clean_desc">Automatically wipe selected categories when the browser closes</span>
           </div>
           <div class="toggle-track" id="auto-clean-toggle">
             <div class="toggle-thumb"></div>
           </div>
         </label>
+
+        <div class="behavior-item" style="cursor:default;">
+          <div class="behavior-info">
+            <span class="behavior-name" data-i18n="language">Language</span>
+          </div>
+          <select id="lang-select" class="lang-select">
+            <option value="auto">Auto</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="pt_PT">Português (PT)</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="ja">日本語</option>
+          </select>
+        </div>
       </section>
 
       <section class="add-section">
@@ -63,7 +80,7 @@
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
           <p data-i18n="empty_title">No protected sites yet</p>
-          <span data-i18n="empty_desc">Add a domain above or click "Protect" in the popup</span>
+          <span data-i18n="empty_desc">Add a domain above or click "Protect" in the popup when visiting a site</span>
         </div>
         <ul id="site-list" class="site-list"></ul>
       </section>
@@ -102,6 +119,20 @@
         <p id="io-status" class="io-status hidden"></p>
       </section>
 
+      <section class="tip-section">
+        <div class="tip-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <div class="tip-content">
+          <p class="tip-title" data-i18n="fresh_start_title">Tip: start clean for best results</p>
+          <p class="tip-desc" data-i18n="fresh_start_desc">For a complete clean, first clear all browser data manually, then re-login to each important site and add it to the whitelist.</p>
+        </div>
+      </section>
+
     </main>
 
   </div>
@@ -111,6 +142,7 @@
     <span id="app-version" class="app-version"></span>
   </footer>
 
+  <script src="i18n.js"></script>
   <script src="options.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
 
 **Elimina todos los rastros de tu navegador en un clic — con lista blanca para proteger los sitios que te importan.**
 
-![Version](https://img.shields.io/badge/versión-1.1.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/versión-1.2.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![License](https://img.shields.io/badge/licencia-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -45,10 +45,10 @@ ZeroTrace es una extensión de Chrome que elimina al instante todos los rastros 
 - **Limpieza en 1 clic** — pulsa el botón, listo
 - **Lista blanca** — protege dominios; sus datos sobreviven a cada limpieza
 - **5 categorías** — activa o desactiva cada una de forma independiente
-- **Limpieza automática al cerrar** — limpia todo cuando se cierra Chrome
+- **Limpieza automática al cerrar** — limpia todo al cerrar el navegador
 - **Estadísticas post-limpieza** — cookies y URLs eliminadas mostradas después de cada limpieza
 - **Copia de seguridad y restauración** — exporta e importa tu configuración en JSON
-- **7 idiomas** — EN, FR, ES, PT-PT, DE, IT, JA
+- **Selector de idioma** — cambia el idioma de la interfaz directamente en los ajustes
 - **Manifest V3** — estándar moderno de extensiones Chrome
 
 ---
@@ -71,6 +71,12 @@ ZeroTrace es una extensión de Chrome que elimina al instante todos los rastros 
 2. Ve a `chrome://extensions/`
 3. Activa el **Modo desarrollador**
 4. Haz clic en **Cargar extensión sin empaquetar** y selecciona la carpeta
+
+---
+
+## Consejo — Empieza desde cero para mejores resultados
+
+Para un borrado completo, limpia primero todos los datos del navegador manualmente (Ajustes → Borrar datos de navegación), luego vuelve a iniciar sesión sitio por sitio y añade cada uno a la lista blanca. Esto evita que antiguas cookies ocultas persistan entre limpiezas.
 
 ---
 

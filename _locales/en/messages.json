@@ -24,7 +24,8 @@
   "subtitle":           { "message": "Data from these sites is never deleted" },
   "behavior":           { "message": "BEHAVIOR" },
   "auto_clean_name":    { "message": "Auto-clean on browser close" },
-  "auto_clean_desc":    { "message": "Automatically wipe selected categories when Chrome closes" },
+  "auto_clean_desc":    { "message": "Automatically wipe selected categories when the browser closes" },
+  "language":           { "message": "Language" },
   "domain_placeholder": { "message": "domain.com" },
   "add":                { "message": "Add" },
   "empty_title":        { "message": "No protected sites yet" },
@@ -36,5 +37,7 @@
   "import_settings":    { "message": "Import settings" },
   "status_imported":    { "message": "Settings imported successfully" },
   "import_failed":      { "message": "Import failed" },
-  "confirm_clear_all":  { "message": "Remove all protected sites? Their data will be cleaned on next clean." }
+  "confirm_clear_all":  { "message": "Remove all protected sites? Their data will be cleaned on next clean." },
+  "fresh_start_title":  { "message": "Tip: start from a clean slate for best results" },
+  "fresh_start_desc":   { "message": "For a complete clean, first clear all browser data manually (Settings → Clear browsing data), then re-login to each important site one by one and add it to the whitelist. This prevents old hidden cookies from persisting." }
 }

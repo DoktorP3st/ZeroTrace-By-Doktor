@@ -12,7 +12,7 @@
 
 **Supprimez toutes vos traces de navigation en un clic — avec liste blanche pour protéger les sites importants.**
 
-![Version](https://img.shields.io/badge/version-1.1.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.2.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Licence](https://img.shields.io/badge/licence-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -47,10 +47,10 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 - **Nettoyage en 1 clic** — appuyez sur le bouton, c'est fait
 - **Liste blanche de sites** — protégez un domaine ; ses données survivent à chaque nettoyage
 - **5 catégories de nettoyage** — activez ou désactivez chacune indépendamment
-- **Nettoyage auto à la fermeture** — option pour tout nettoyer quand Chrome se ferme
+- **Nettoyage auto à la fermeture** — option pour tout nettoyer à la fermeture du navigateur
 - **Statistiques post-nettoyage** — cookies et URLs supprimés affichés après chaque nettoyage
 - **Sauvegarde & Restauration** — exportez vos paramètres en JSON et réimportez-les à tout moment
-- **7 langues** — EN, FR, ES, PT-PT, DE, IT, JA
+- **Sélecteur de langue** — changez la langue de l'interface directement dans les paramètres
 - **Manifest V3** — basé sur le standard moderne des extensions Chrome
 
 ---
@@ -87,6 +87,9 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 **Nettoyage auto à la fermeture** — Activez dans les Paramètres pour nettoyer automatiquement.
 
 **Sauvegarde & Restauration** — Exportez vos paramètres en JSON, réimportez sur n'importe quel appareil.
+
+> **Conseil — Pour des résultats optimaux, repartez sur une base propre**
+> Pour un nettoyage complet, commencez par effacer toutes les données du navigateur manuellement (Paramètres → Effacer les données de navigation), puis reconnectez-vous site par site en ajoutant chacun à la liste blanche. Cela évite que d'anciens cookies cachés ne persistent entre les nettoyages.
 
 ---
 

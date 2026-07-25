@@ -23,8 +23,9 @@
   "protected_sites":    { "message": "保護されたサイト" },
   "subtitle":           { "message": "これらのサイトのデータは削除されません" },
   "behavior":           { "message": "動作設定" },
-  "auto_clean_name":    { "message": "Chrome終了時に自動クリア" },
-  "auto_clean_desc":    { "message": "Chrome終了時に選択したカテゴリを自動的にクリアします" },
+  "auto_clean_name":    { "message": "閉じる時に自動クリア" },
+  "auto_clean_desc":    { "message": "ブラウザを閉じたときに自動的にクリアします" },
+  "language":           { "message": "言語" },
   "domain_placeholder": { "message": "domain.com" },
   "add":                { "message": "追加" },
   "empty_title":        { "message": "保護されたサイトはありません" },
@@ -36,5 +37,7 @@
   "import_settings":    { "message": "設定をインポート" },
   "status_imported":    { "message": "設定のインポートが完了しました" },
   "import_failed":      { "message": "インポートに失敗しました" },
-  "confirm_clear_all":  { "message": "すべての保護サイトを削除しますか？次回のクリア実行時にデータが削除されます。" }
+  "confirm_clear_all":  { "message": "すべての保護サイトを削除しますか？次回のクリア実行時にデータが削除されます。" },
+  "fresh_start_title":  { "message": "ヒント：ゼロから始めると最良の結果が得られます" },
+  "fresh_start_desc":   { "message": "完全なクリーンアップのため、まずブラウザのデータを手動で削除してください（設定 → 閲覧データを削除）。次に、重要な各サイトに一つずつ再ログインしてホワイトリストに追加します。これにより、古いCookieが隠れたまま残るのを防ぎます。" }
 }

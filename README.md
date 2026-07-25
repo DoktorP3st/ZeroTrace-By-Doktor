@@ -12,7 +12,7 @@
 
 **Wipe all browser traces in one click — with whitelist protection for the sites you care about.**
 
-![Version](https://img.shields.io/badge/version-1.1.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.2.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -47,10 +47,10 @@ Log out of everything you don't need. Stay logged into everything you do.
 - **One-click cleaning** — hit the button, done
 - **Site whitelist** — protect any domain; their cookies and data survive every wipe
 - **5 cleaning categories** — toggle each one independently
-- **Auto-clean on close** — optionally wipe everything when Chrome closes
+- **Auto-clean on close** — optionally wipe everything when the browser closes
 - **Post-clean stats** — see exactly how many cookies and URLs were removed
 - **Backup & Restore** — export your settings to JSON and reimport them anytime
-- **7 languages** — EN, FR, ES, PT-PT, DE, IT, JA
+- **Language selector** — switch the UI language directly in settings (EN, FR, ES, PT-PT, DE, IT, JA)
 - **Manifest V3** — built on the modern Chrome extension standard
 
 ---
@@ -87,6 +87,9 @@ Log out of everything you don't need. Stay logged into everything you do.
 **Auto-clean on close** — Enable in Settings to clean automatically when Chrome closes.
 
 **Backup & Restore** — Export your settings to JSON, reimport on any device.
+
+> **Tip — Get the best results with a clean slate**
+> For a complete reset, manually clear all browser data first (Settings → Clear browsing data), then re-login to each important site one by one and add it to the whitelist. This prevents old hidden cookies from persisting between cleans.
 
 ---
 

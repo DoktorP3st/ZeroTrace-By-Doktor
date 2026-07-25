@@ -24,7 +24,8 @@
   "subtitle":           { "message": "Daten dieser Seiten werden nie gelöscht" },
   "behavior":           { "message": "VERHALTEN" },
   "auto_clean_name":    { "message": "Automatisch beim Schließen bereinigen" },
-  "auto_clean_desc":    { "message": "Automatisch bereinigen, wenn Chrome geschlossen wird" },
+  "auto_clean_desc":    { "message": "Löscht automatisch beim Schließen des Browsers" },
+  "language":           { "message": "Sprache" },
   "domain_placeholder": { "message": "domain.de" },
   "add":                { "message": "Hinzufügen" },
   "empty_title":        { "message": "Keine geschützten Seiten" },
@@ -36,5 +37,7 @@
   "import_settings":    { "message": "Einstellungen importieren" },
   "status_imported":    { "message": "Einstellungen erfolgreich importiert" },
   "import_failed":      { "message": "Import fehlgeschlagen" },
-  "confirm_clear_all":  { "message": "Alle geschützten Seiten entfernen? Ihre Daten werden bei der nächsten Bereinigung gelöscht." }
+  "confirm_clear_all":  { "message": "Alle geschützten Seiten entfernen? Ihre Daten werden bei der nächsten Bereinigung gelöscht." },
+  "fresh_start_title":  { "message": "Tipp: Neustart für beste Ergebnisse" },
+  "fresh_start_desc":   { "message": "Für eine vollständige Bereinigung lösche zuerst alle Browserdaten manuell (Einstellungen → Browserdaten löschen), melde dich dann bei jeder wichtigen Seite neu an und füge sie der Whitelist hinzu. So bleiben keine alten Cookies versteckt." }
 }

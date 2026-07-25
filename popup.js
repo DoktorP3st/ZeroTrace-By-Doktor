@@ -3,17 +3,6 @@ const DEFAULT_CATEGORIES = ['history', 'cache', 'cookies', 'storage'];
 let currentDomain = null;
 let whitelist = [];
 
-function t(key) {
-  return chrome.i18n.getMessage(key) || key;
-}
-
-function applyI18n() {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const msg = t(el.dataset.i18n);
-    if (msg) el.textContent = msg;
-  });
-}
-
 function extractDomain(url) {
   try {
     return new URL(url).hostname.replace(/^www\./, '');
@@ -87,8 +76,6 @@ function formatStats(stats) {
   return parts.length ? parts.join(' · ') : 'nothing to clean';
 }
 
-// Wraps a single browsingData.remove call — a deprecated/unsupported type
-// won't silently kill other types
 async function safeRemove(options, dataType) {
   try {
     await chrome.browsingData.remove(options, dataType);
@@ -98,44 +85,66 @@ async function safeRemove(options, dataType) {
   }
 }
 
-// ── Cleaners ──
-// Whitelist only protects COOKIES. History, cache, storage are wiped for all sites.
-
 async function cleanHistory() {
-  // Always delete all — whitelist doesn't apply here
-  await chrome.history.deleteAll();
+  try { await chrome.history.deleteAll(); } catch {}
 }
 
 async function cleanCache() {
-  // Each type in its own call — deprecated types (appcache) won't block the others
-  await Promise.allSettled([
-    safeRemove({ since: 0 }, { cache: true }),
-    safeRemove({ since: 0 }, { cacheStorage: true }),
-    safeRemove({ since: 0 }, { serviceWorkers: true }),
-  ]);
+  for (const type of ['cache', 'cacheStorage', 'serviceWorkers']) {
+    try { await chrome.browsingData.remove({ since: 0 }, { [type]: true }); } catch {}
+  }
+}
+
+function cookieKey(c) {
+  return `${c.name}|${c.domain}|${c.path}|${c.storeId}|${c.partitionKey?.topLevelSite ?? ''}`;
 }
 
 async function cleanCookies() {
-  // Use browsingData API — it handles partitioned cookies, subdomains and
-  // all edge cases that manual cookie.remove() misses.
-  // excludedOrigins covers the full registrable domain (including subdomains).
-  const before = (await chrome.cookies.getAll({})).length;
+  const unpartitioned = await chrome.cookies.getAll({});
+  let partitioned = [];
+  try { partitioned = await chrome.cookies.getAll({ partitionKey: {} }); } catch {}
 
-  const excludedOrigins = whitelist.flatMap(domain => [
-    `https://${domain}`,
-    `http://${domain}`,
-    `https://www.${domain}`,
-    `http://www.${domain}`
-  ]);
+  const seen = new Set();
+  const allVisible = [];
+  for (const c of [...unpartitioned, ...partitioned]) {
+    const k = cookieKey(c);
+    if (!seen.has(k)) { seen.add(k); allVisible.push(c); }
+  }
 
-  await safeRemove({ since: 0, excludedOrigins }, { cookies: true });
+  const toKeep = allVisible.filter(cookie => {
+    const domain = cookie.domain.replace(/^\./, '');
+    return whitelist.some(w => domain === w || domain.endsWith('.' + w));
+  });
 
-  const after = (await chrome.cookies.getAll({})).length;
-  return Math.max(0, before - after);
+  try {
+    await chrome.browsingData.remove({ since: 0 }, { cookies: true });
+  } catch {
+    return 0;
+  }
+
+  for (const cookie of toKeep) {
+    const protocol = cookie.secure ? 'https' : 'http';
+    const host = cookie.domain.replace(/^\./, '');
+    const details = {
+      url: `${protocol}://${host}${cookie.path}`,
+      name: cookie.name,
+      value: cookie.value,
+      path: cookie.path,
+      secure: cookie.secure,
+      httpOnly: cookie.httpOnly,
+      sameSite: cookie.sameSite || 'unspecified',
+      storeId: cookie.storeId,
+    };
+    if (!cookie.name.startsWith('__Host-')) details.domain = cookie.domain;
+    if (cookie.expirationDate) details.expirationDate = cookie.expirationDate;
+    if (cookie.partitionKey !== undefined) details.partitionKey = cookie.partitionKey;
+    try { await chrome.cookies.set(details); } catch {}
+  }
+
+  return allVisible.length - toKeep.length;
 }
 
 async function cleanStorage() {
-  // All sites — whitelist doesn't apply here
   await Promise.allSettled([
     safeRemove({ since: 0 }, { localStorage: true }),
     safeRemove({ since: 0 }, { indexedDB: true }),
@@ -148,8 +157,6 @@ async function cleanForms() {
     safeRemove({ since: 0 }, { passwords: true }),
   ]);
 }
-
-// ── Main ──
 
 async function cleanAll() {
   const categories = getSelectedCategories();
@@ -202,6 +209,7 @@ async function cleanAll() {
 }
 
 async function init() {
+  await initI18n();
   applyI18n();
 
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });

@@ -24,7 +24,8 @@
   "subtitle":           { "message": "I dati di questi siti non vengono mai eliminati" },
   "behavior":           { "message": "COMPORTAMENTO" },
   "auto_clean_name":    { "message": "Pulizia automatica alla chiusura" },
-  "auto_clean_desc":    { "message": "Pulisce automaticamente quando Chrome si chiude" },
+  "auto_clean_desc":    { "message": "Pulisce automaticamente alla chiusura del browser" },
+  "language":           { "message": "Lingua" },
   "domain_placeholder": { "message": "dominio.it" },
   "add":                { "message": "Aggiungi" },
   "empty_title":        { "message": "Nessun sito protetto" },
@@ -36,5 +37,7 @@
   "import_settings":    { "message": "Importa impostazioni" },
   "status_imported":    { "message": "Impostazioni importate con successo" },
   "import_failed":      { "message": "Importazione fallita" },
-  "confirm_clear_all":  { "message": "Rimuovere tutti i siti protetti? I loro dati verranno puliti alla prossima pulizia." }
+  "confirm_clear_all":  { "message": "Rimuovere tutti i siti protetti? I loro dati verranno puliti alla prossima pulizia." },
+  "fresh_start_title":  { "message": "Suggerimento: inizia da zero per i migliori risultati" },
+  "fresh_start_desc":   { "message": "Per una pulizia completa, cancella prima tutti i dati del browser manualmente (Impostazioni → Cancella dati di navigazione), poi accedi nuovamente a ogni sito importante uno alla volta e aggiungilo alla whitelist. Questo impedisce che vecchi cookie rimangano nascosti." }
 }

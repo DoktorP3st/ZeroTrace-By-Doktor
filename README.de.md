@@ -12,7 +12,7 @@
 
 **Alle Browser-Spuren per Klick löschen — mit Whitelist-Schutz für wichtige Seiten.**
 
-![Version](https://img.shields.io/badge/Version-1.1.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.2.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Lizenz](https://img.shields.io/badge/Lizenz-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -45,10 +45,10 @@ ZeroTrace ist eine Chrome-Erweiterung, die alle Browser-Spuren sofort löscht �
 - **Ein-Klick-Bereinigung** — Schaltfläche drücken, fertig
 - **Whitelist** — Domains schützen; deren Daten überleben jede Bereinigung
 - **5 Kategorien** — jede einzeln aktivieren oder deaktivieren
-- **Automatisch beim Schließen bereinigen** — beim Beenden von Chrome automatisch bereinigen
+- **Automatisch beim Schließen bereinigen** — automatisch beim Schließen des Browsers bereinigen
 - **Statistiken nach der Bereinigung** — gelöschte Cookies und URLs angezeigt
 - **Sicherung & Wiederherstellung** — Einstellungen als JSON exportieren und importieren
-- **7 Sprachen** — EN, FR, ES, PT-PT, DE, IT, JA
+- **Sprachauswahl** — Sprache der Oberfläche direkt in den Einstellungen wechseln
 - **Manifest V3** — moderner Chrome-Erweiterungsstandard
 
 ---
@@ -71,6 +71,12 @@ ZeroTrace ist eine Chrome-Erweiterung, die alle Browser-Spuren sofort löscht �
 2. Chrome öffnen und zu `chrome://extensions/` navigieren
 3. **Entwicklermodus** aktivieren (oben rechts)
 4. **Entpackte Erweiterung laden** klicken und den Projektordner auswählen
+
+---
+
+## Tipp — Für beste Ergebnisse neu starten
+
+Für eine vollständige Bereinigung zuerst alle Browserdaten manuell löschen (Einstellungen → Browserdaten löschen), dann bei jedem wichtigen Dienst neu anmelden und ihn einzeln zur Whitelist hinzufügen. So wird verhindert, dass alte versteckte Cookies zwischen den Bereinigungen erhalten bleiben.
 
 ---
 

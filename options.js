@@ -1,23 +1,7 @@
-// Keys exported/imported — update this list when adding new settings
-const EXPORT_KEYS = ['whitelist', 'selectedCategories', 'autoCleanOnClose'];
+const EXPORT_KEYS = ['whitelist', 'selectedCategories', 'autoCleanOnClose', 'uiLang'];
 
 let whitelist = [];
 let autoCleanOnClose = false;
-
-function t(key) {
-  return chrome.i18n.getMessage(key) || key;
-}
-
-function applyI18n() {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const msg = t(el.dataset.i18n);
-    if (msg) el.textContent = msg;
-  });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const msg = t(el.dataset.i18nPlaceholder);
-    if (msg) el.placeholder = msg;
-  });
-}
 
 async function loadSettings() {
   const data = await chrome.storage.sync.get(EXPORT_KEYS);
@@ -114,6 +98,14 @@ async function clearAll() {
   render();
 }
 
+async function changeLang() {
+  const lang = document.getElementById('lang-select').value;
+  await chrome.storage.sync.set({ uiLang: lang });
+  await initI18n();
+  applyI18n();
+  render();
+}
+
 // ── Export ──
 async function exportSettings() {
   const data = await chrome.storage.sync.get(EXPORT_KEYS);
@@ -123,7 +115,8 @@ async function exportSettings() {
     settings: {
       whitelist:          data.whitelist          || [],
       selectedCategories: data.selectedCategories || ['history', 'cache', 'cookies', 'storage'],
-      autoCleanOnClose:   data.autoCleanOnClose   || false
+      autoCleanOnClose:   data.autoCleanOnClose   || false,
+      uiLang:             data.uiLang             || 'auto'
     }
   };
 
@@ -160,11 +153,18 @@ async function importSettings(file) {
     if (typeof s.autoCleanOnClose === 'boolean') {
       toSave.autoCleanOnClose = s.autoCleanOnClose;
     }
+    if (typeof s.uiLang === 'string') {
+      const validLangs = ['auto', 'en', 'fr', 'es', 'pt_PT', 'de', 'it', 'ja'];
+      if (validLangs.includes(s.uiLang)) toSave.uiLang = s.uiLang;
+    }
 
     await chrome.storage.sync.set(toSave);
     await loadSettings();
+    await initI18n();
+    applyI18n();
     render();
     renderToggle();
+    if (toSave.uiLang) document.getElementById('lang-select').value = toSave.uiLang;
 
     statusEl.textContent = `✓ ${t('status_imported')}`;
     statusEl.className = 'io-status success';
@@ -177,6 +177,7 @@ async function importSettings(file) {
 }
 
 async function init() {
+  await initI18n();
   applyI18n();
 
   const { version } = chrome.runtime.getManifest();
@@ -185,6 +186,9 @@ async function init() {
   await loadSettings();
   render();
   renderToggle();
+
+  const { uiLang = 'auto' } = await chrome.storage.sync.get('uiLang');
+  document.getElementById('lang-select').value = uiLang;
 
   document.getElementById('add-btn').addEventListener('click', addDomain);
   document.getElementById('add-input').addEventListener('keydown', e => {
@@ -196,6 +200,7 @@ async function init() {
   });
   document.getElementById('clear-all-btn').addEventListener('click', clearAll);
   document.getElementById('auto-clean-toggle').addEventListener('click', toggleAutoClean);
+  document.getElementById('lang-select').addEventListener('change', changeLang);
   document.getElementById('export-btn').addEventListener('click', exportSettings);
   document.getElementById('import-input').addEventListener('change', e => {
     if (e.target.files[0]) importSettings(e.target.files[0]);

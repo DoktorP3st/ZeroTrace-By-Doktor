@@ -170,6 +170,30 @@ main {
   background: #fff;
 }
 
+/* ── Language selector ── */
+.lang-select {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  cursor: pointer;
+  outline: none;
+  flex-shrink: 0;
+  transition: border-color 0.15s;
+}
+
+.lang-select:focus {
+  border-color: var(--green);
+}
+
+.lang-select option {
+  background: var(--surface2);
+  color: var(--text);
+}
+
 /* ── Add section ── */
 .add-section {
   display: flex;
@@ -395,6 +419,45 @@ main {
 .io-status.hidden { display: none; }
 .io-status.success { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,200,150,.25); }
 .io-status.error   { background: var(--red-dim);   color: var(--red);   border: 1px solid rgba(230,57,70,.25); }
+
+/* ── Tip section ── */
+.tip-section {
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(0, 200, 150, 0.05);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius);
+}
+
+.tip-icon {
+  color: var(--green);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.tip-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tip-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tip-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.tip-desc {
+  font-size: 11px;
+  color: var(--text-sec);
+  line-height: 1.55;
+}
 
 /* ── Footer ── */
 .app-footer {

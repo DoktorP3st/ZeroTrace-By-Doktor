@@ -24,7 +24,8 @@
   "subtitle":           { "message": "Os dados destes sites nunca são eliminados" },
   "behavior":           { "message": "COMPORTAMENTO" },
   "auto_clean_name":    { "message": "Limpeza automática ao fechar" },
-  "auto_clean_desc":    { "message": "Limpa automaticamente ao fechar o Chrome" },
+  "auto_clean_desc":    { "message": "Limpa automaticamente quando o navegador fecha" },
+  "language":           { "message": "Idioma" },
   "domain_placeholder": { "message": "dominio.pt" },
   "add":                { "message": "Adicionar" },
   "empty_title":        { "message": "Nenhum site protegido" },
@@ -36,5 +37,7 @@
   "import_settings":    { "message": "Importar definições" },
   "status_imported":    { "message": "Definições importadas com sucesso" },
   "import_failed":      { "message": "Falha na importação" },
-  "confirm_clear_all":  { "message": "Remover todos os sites protegidos? Os seus dados serão limpos na próxima limpeza." }
+  "confirm_clear_all":  { "message": "Remover todos os sites protegidos? Os seus dados serão limpos na próxima limpeza." },
+  "fresh_start_title":  { "message": "Dica: comece do zero para melhores resultados" },
+  "fresh_start_desc":   { "message": "Para uma limpeza completa, apaga primeiro todos os dados do navegador manualmente (Definições → Limpar dados de navegação), depois volta a iniciar sessão em cada site importante um a um e adiciona-o à lista branca. Isto impede que cookies antigos fiquem escondidos." }
 }
