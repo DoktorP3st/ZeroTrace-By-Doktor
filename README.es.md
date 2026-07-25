@@ -8,6 +8,7 @@
 [![pt-pt](https://img.shields.io/badge/lang-pt--pt-green.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.pt-pt.md)
 [![de](https://img.shields.io/badge/lang-de-lightgrey.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.de.md)
 [![it](https://img.shields.io/badge/lang-it-008C45.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.it.md)
+
 **Elimina todos los rastros de tu navegador en un clic — con lista blanca para proteger los sitios que te importan.**
 
 ![Version](https://img.shields.io/badge/versión-1.3.0-e63946?style=flat-square)
