@@ -13,7 +13,7 @@
 
 ![Versione](https://img.shields.io/badge/versione-1.5.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
-![Licenza](https://img.shields.io/badge/licenza-MIT-6b7491?style=flat-square)
+![Licenza](https://img.shields.io/badge/licenza-GPL--v3-6b7491?style=flat-square)
 ![Chrome](https://img.shields.io/badge/Chrome-Compatible-4285F4?style=flat-square&logo=googlechrome&logoColor=white) ![Brave](https://img.shields.io/badge/Brave-Compatible-FB542B?style=flat-square&logo=brave&logoColor=white)
 ![Lingue](https://img.shields.io/badge/lingue-6-orange?style=flat-square)
 
@@ -99,7 +99,11 @@ ZeroTrace funziona **interamente in locale** — nessun dato viene raccolto, tra
 
 ## Licenza
 
-MIT — libero di usare, modificare e distribuire.
+GNU General Public License v3.0 — vedere [LICENSE](LICENSE).
+
+Qualsiasi opera derivata deve rimanere open-source sotto la stessa licenza. L'uso commerciale senza pubblicare il codice sorgente non è consentito.
+
+> ZeroTrace è nato da una necessità: Click & Clean, un'estensione di pulizia usata da milioni di persone, è stata dismessa senza un successore open-source. Questo progetto esiste unicamente per colmare quel vuoto — gratuito, trasparente e senza alcuna intenzione commerciale.
 
 ---
 
