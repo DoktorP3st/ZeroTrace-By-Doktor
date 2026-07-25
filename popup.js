@@ -116,24 +116,22 @@ async function cleanCache() {
 }
 
 async function cleanCookies() {
-  // Whitelist applies here only — keep cookies from protected domains
-  const cookies = await chrome.cookies.getAll({});
-  const toDelete = cookies.filter(cookie => {
-    const domain = cookie.domain.replace(/^\./, '');
-    return !whitelist.some(w => domain === w || domain.endsWith('.' + w));
-  });
+  // Use browsingData API — it handles partitioned cookies, subdomains and
+  // all edge cases that manual cookie.remove() misses.
+  // excludedOrigins covers the full registrable domain (including subdomains).
+  const before = (await chrome.cookies.getAll({})).length;
 
-  await Promise.allSettled(toDelete.map(cookie => {
-    const protocol = cookie.secure ? 'https' : 'http';
-    const host = cookie.domain.replace(/^\./, '');
-    return chrome.cookies.remove({
-      url: `${protocol}://${host}${cookie.path}`,
-      name: cookie.name,
-      storeId: cookie.storeId
-    });
-  }));
+  const excludedOrigins = whitelist.flatMap(domain => [
+    `https://${domain}`,
+    `http://${domain}`,
+    `https://www.${domain}`,
+    `http://www.${domain}`
+  ]);
 
-  return toDelete.length;
+  await safeRemove({ since: 0, excludedOrigins }, { cookies: true });
+
+  const after = (await chrome.cookies.getAll({})).length;
+  return Math.max(0, before - after);
 }
 
 async function cleanStorage() {
