@@ -11,7 +11,7 @@
 
 **Wipe all browser traces in one click — with whitelist protection for the sites you care about.**
 
-![Version](https://img.shields.io/badge/version-1.3.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.5.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -25,9 +25,13 @@
 
 <div align="center">
 
-| Main Popup | Protected Sites | Cookie Viewer |
-|:---:|:---:|:---:|
-| ![ZeroTrace popup](https://i.ibb.co/vxFsrFhr/Capture-d-cran-2026-07-25-012630.png) | ![ZeroTrace whitelist](https://i.ibb.co/0Vqr27kw/Capture-d-cran-2026-07-25-012634.png) | ![ZeroTrace cookie viewer](https://i.ibb.co/0ykL99Ls/Capture-d-cran-2026-07-25-034044.png) |
+| Main Popup | Settings |
+|:---:|:---:|
+| ![ZeroTrace popup](https://i.ibb.co/LDpgBpBM/interfaceprincipal.png) | ![ZeroTrace settings](https://i.ibb.co/0y5NgFT1/Parametre.png) |
+
+| Whitelist | Cookie Manager |
+|:---:|:---:|
+| ![ZeroTrace whitelist](https://i.ibb.co/p6DYDBXW/whitlist.png) | ![ZeroTrace cookies](https://i.ibb.co/XfFzmHVG/Cookies.png) |
 
 </div>
 
@@ -44,11 +48,13 @@ Log out of everything you don't need. Stay logged into everything you do.
 ## Features
 
 - **One-click cleaning** — hit the button, done
-- **Site whitelist** — protect any domain; their cookies and data survive every wipe
-- **Cookie viewer** — browse all cookies by domain, protect or delete them directly in settings
-- **5 cleaning categories** — toggle each one independently
+- **Time range** — clean the last hour, 24h, 7 days, or all time
+- **Site whitelist** — protect any domain; their cookies survive every wipe
+- **Cookie manager** — browse all cookies by domain, move them to whitelist or delete them directly
+- **7 cleaning categories** — toggle each one independently
+- **Secure close** — clean and close all browser windows in one action
+- **Incognito** — open a private window directly from the popup
 - **Auto-clean on startup** — optionally wipe everything each time the browser launches
-- **Post-clean stats** — see exactly how many cookies and URLs were removed
 - **Backup & Restore** — export your settings to JSON and reimport them anytime
 - **Language selector** — switch the UI language directly in settings (EN, FR, ES, PT, DE, IT)
 - **Manifest V3** — built on the modern Chrome extension standard
@@ -59,10 +65,12 @@ Log out of everything you don't need. Stay logged into everything you do.
 
 | Category | What gets removed |
 |---|---|
-| **Navigation Trail** | Browsing history & downloads list |
+| **Navigation Trail** | Browsing & search history |
+| **Downloads** | Download history list |
 | **Web Cache** | Cached files, images, service workers |
 | **Cookies & Sessions** | All cookies *(whitelist protected)* |
-| **Site Storage** | LocalStorage, IndexedDB, WebSQL |
+| **LocalStorage** | Site preferences & data |
+| **IndexedDB** | Offline databases & PWA data |
 | **Forms & Passwords** | Autofill data & saved passwords *(off by default)* |
 
 ---
@@ -82,11 +90,13 @@ Log out of everything you don't need. Stay logged into everything you do.
 
 **Managing your whitelist** — Click **Manage protected sites** to open the full settings page.
 
-**Cleaning** — Toggle the categories you want, then press **CLEAN ALL**.
+**Cleaning** — Toggle the categories you want, select a time range, then press **CLEAN ALL**.
+
+**Secure close** — Cleans selected categories and closes all browser windows at once.
 
 **Auto-clean on startup** — Enable in Settings to wipe automatically each time the browser launches.
 
-**Cookie viewer** — Open Settings to browse all cookies by domain, protect a site with one click, or delete its cookies immediately.
+**Cookie manager** — Open Settings → Cookies tab to browse all cookies by domain, protect a site with one click, or delete its cookies immediately.
 
 **Backup & Restore** — Export your settings to JSON, reimport on any device.
 

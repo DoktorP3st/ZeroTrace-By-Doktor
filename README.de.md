@@ -11,7 +11,7 @@
 
 **Alle Browser-Spuren per Klick löschen — mit Whitelist-Schutz für wichtige Seiten.**
 
-![Version](https://img.shields.io/badge/Version-1.3.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.5.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Lizenz](https://img.shields.io/badge/Lizenz-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -25,9 +25,13 @@
 
 <div align="center">
 
-| Haupt-Popup | Geschützte Seiten | Cookie-Viewer |
-|:---:|:---:|:---:|
-| ![ZeroTrace popup](https://i.ibb.co/vxFsrFhr/Capture-d-cran-2026-07-25-012630.png) | ![ZeroTrace whitelist](https://i.ibb.co/0Vqr27kw/Capture-d-cran-2026-07-25-012634.png) | ![ZeroTrace cookie viewer](https://i.ibb.co/0ykL99Ls/Capture-d-cran-2026-07-25-034044.png) |
+| Haupt-Popup | Einstellungen |
+|:---:|:---:|
+| ![ZeroTrace popup](https://i.ibb.co/LDpgBpBM/interfaceprincipal.png) | ![ZeroTrace settings](https://i.ibb.co/0y5NgFT1/Parametre.png) |
+
+| Whitelist | Cookie-Manager |
+|:---:|:---:|
+| ![ZeroTrace whitelist](https://i.ibb.co/p6DYDBXW/whitlist.png) | ![ZeroTrace cookies](https://i.ibb.co/XfFzmHVG/Cookies.png) |
 
 </div>
 
@@ -42,11 +46,13 @@ ZeroTrace ist eine Chrome-Erweiterung, die alle Browser-Spuren sofort löscht �
 ## Funktionen
 
 - **Ein-Klick-Bereinigung** — Schaltfläche drücken, fertig
+- **Zeitraum** — letzte Stunde, 24h, 7 Tage oder alles bereinigen
 - **Whitelist** — Domains schützen; deren Daten überleben jede Bereinigung
-- **Cookie-Viewer** — Cookies nach Domain durchsuchen, schützen oder direkt in den Einstellungen löschen
-- **5 Kategorien** — jede einzeln aktivieren oder deaktivieren
+- **Cookie-Manager** — Cookies nach Domain durchsuchen, schützen oder direkt löschen
+- **7 Kategorien** — jede einzeln aktivieren oder deaktivieren
+- **Sicher schließen** — bereinigt und schließt alle Browser-Fenster in einer Aktion
+- **Inkognito** — privates Fenster direkt aus dem Popup öffnen
 - **Automatisch beim Start bereinigen** — löscht beim Start des Browsers automatisch die ausgewählten Kategorien
-- **Statistiken nach der Bereinigung** — gelöschte Cookies und URLs angezeigt
 - **Sicherung & Wiederherstellung** — Einstellungen als JSON exportieren und importieren
 - **Sprachauswahl** — Sprache der Oberfläche direkt in den Einstellungen wechseln
 - **Manifest V3** — moderner Chrome-Erweiterungsstandard
@@ -57,10 +63,12 @@ ZeroTrace ist eine Chrome-Erweiterung, die alle Browser-Spuren sofort löscht �
 
 | Kategorie | Was wird gelöscht |
 |---|---|
-| **Navigation Trail** | Browserverlauf und Downloads |
+| **Navigation Trail** | Browser- und Suchverlauf |
+| **Downloads** | Download-Verlauf |
 | **Web Cache** | Cache-Dateien, Bilder, Service Worker |
 | **Cookies & Sessions** | Alle Cookies *(Whitelist-Schutz)* |
-| **Site Storage** | LocalStorage, IndexedDB, WebSQL |
+| **LocalStorage** | Website-Einstellungen & Daten |
+| **IndexedDB** | Offline-Datenbanken & PWA |
 | **Forms & Passwords** | Autofill und Passwörter *(standardmäßig deaktiviert)* |
 
 ---

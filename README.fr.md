@@ -8,9 +8,10 @@
 [![pt](https://img.shields.io/badge/lang-pt-green.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.pt.md)
 [![de](https://img.shields.io/badge/lang-de-lightgrey.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.de.md)
 [![it](https://img.shields.io/badge/lang-it-008C45.svg)](https://github.com/Lekarov/ZeroTrace-By-Pestovich/blob/master/README.it.md)
+
 **Supprimez toutes vos traces de navigation en un clic — avec liste blanche pour protéger les sites importants.**
 
-![Version](https://img.shields.io/badge/version-1.3.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.5.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Licence](https://img.shields.io/badge/licence-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -24,9 +25,13 @@
 
 <div align="center">
 
-| Popup principale | Sites protégés | Vue des cookies |
-|:---:|:---:|:---:|
-| ![ZeroTrace popup](https://i.ibb.co/vxFsrFhr/Capture-d-cran-2026-07-25-012630.png) | ![ZeroTrace whitelist](https://i.ibb.co/0Vqr27kw/Capture-d-cran-2026-07-25-012634.png) | ![ZeroTrace cookie viewer](https://i.ibb.co/0ykL99Ls/Capture-d-cran-2026-07-25-034044.png) |
+| Popup principale | Paramètres |
+|:---:|:---:|
+| ![ZeroTrace popup](https://i.ibb.co/LDpgBpBM/interfaceprincipal.png) | ![ZeroTrace settings](https://i.ibb.co/0y5NgFT1/Parametre.png) |
+
+| Liste blanche | Gestionnaire de cookies |
+|:---:|:---:|
+| ![ZeroTrace whitelist](https://i.ibb.co/p6DYDBXW/whitlist.png) | ![ZeroTrace cookies](https://i.ibb.co/XfFzmHVG/Cookies.png) |
 
 </div>
 
@@ -43,11 +48,13 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 ## Fonctionnalités
 
 - **Nettoyage en 1 clic** — appuyez sur le bouton, c'est fait
+- **Plage horaire** — nettoyez la dernière heure, 24h, 7 jours ou tout
 - **Liste blanche de sites** — protégez un domaine ; ses données survivent à chaque nettoyage
-- **Vue des cookies** — parcourez les cookies par domaine, protégez ou supprimez-les directement dans les paramètres
-- **5 catégories de nettoyage** — activez ou désactivez chacune indépendamment
+- **Gestionnaire de cookies** — parcourez les cookies par domaine, protégez-les ou supprimez-les directement
+- **7 catégories de nettoyage** — activez ou désactivez chacune indépendamment
+- **Fermeture sécurisée** — nettoie et ferme toutes les fenêtres du navigateur en une action
+- **Incognito** — ouvrez une fenêtre privée directement depuis la popup
 - **Nettoyage auto au démarrage** — nettoie automatiquement à chaque lancement du navigateur
-- **Statistiques post-nettoyage** — cookies et URLs supprimés affichés après chaque nettoyage
 - **Sauvegarde & Restauration** — exportez vos paramètres en JSON et réimportez-les à tout moment
 - **Sélecteur de langue** — changez la langue de l'interface directement dans les paramètres
 - **Manifest V3** — basé sur le standard moderne des extensions Chrome
@@ -58,10 +65,12 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 
 | Catégorie | Ce qui est supprimé |
 |---|---|
-| **Navigation Trail** | Historique de navigation & téléchargements |
+| **Navigation Trail** | Historique de navigation & recherche |
+| **Téléchargements** | Historique des téléchargements |
 | **Web Cache** | Fichiers en cache, images, service workers |
 | **Cookies & Sessions** | Tous les cookies *(liste blanche protégée)* |
-| **Site Storage** | LocalStorage, IndexedDB, WebSQL |
+| **LocalStorage** | Préférences et données des sites |
+| **IndexedDB** | Bases de données hors-ligne & PWA |
 | **Forms & Passwords** | Formulaires & mots de passe *(désactivé par défaut)* |
 
 ---
@@ -81,11 +90,13 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 
 **Gérer la liste blanche** — Cliquez sur **Gérer les sites protégés** pour ouvrir les paramètres.
 
-**Nettoyer** — Activez les catégories souhaitées, puis appuyez sur **TOUT NETTOYER**.
+**Nettoyer** — Activez les catégories souhaitées, choisissez une plage horaire, puis appuyez sur **TOUT NETTOYER**.
+
+**Fermeture sécurisée** — Nettoie les catégories sélectionnées et ferme toutes les fenêtres du navigateur d'un coup.
 
 **Nettoyage auto au démarrage** — Activez dans les Paramètres pour nettoyer automatiquement à chaque lancement.
 
-**Vue des cookies** — Ouvrez les Paramètres pour parcourir les cookies par domaine, protéger un site d'un clic ou supprimer ses cookies immédiatement.
+**Gestionnaire de cookies** — Ouvrez Paramètres → onglet Cookies pour parcourir les cookies par domaine, protéger un site d'un clic ou supprimer ses cookies immédiatement.
 
 **Sauvegarde & Restauration** — Exportez vos paramètres en JSON, réimportez sur n'importe quel appareil.
 

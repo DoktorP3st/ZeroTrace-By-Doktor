@@ -11,7 +11,7 @@
 
 **Apague todos os rastros do navegador com um clique — com lista branca para proteger os sites importantes.**
 
-![Versão](https://img.shields.io/badge/versão-1.3.0-e63946?style=flat-square)
+![Versão](https://img.shields.io/badge/versão-1.5.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Licença](https://img.shields.io/badge/licença-MIT-6b7491?style=flat-square)
 ![Platform](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -25,9 +25,13 @@
 
 <div align="center">
 
-| Popup principal | Sites protegidos | Visualizador de cookies |
-|:---:|:---:|:---:|
-| ![ZeroTrace popup](https://i.ibb.co/vxFsrFhr/Capture-d-cran-2026-07-25-012630.png) | ![ZeroTrace whitelist](https://i.ibb.co/0Vqr27kw/Capture-d-cran-2026-07-25-012634.png) | ![ZeroTrace cookie viewer](https://i.ibb.co/0ykL99Ls/Capture-d-cran-2026-07-25-034044.png) |
+| Popup principal | Definições |
+|:---:|:---:|
+| ![ZeroTrace popup](https://i.ibb.co/LDpgBpBM/interfaceprincipal.png) | ![ZeroTrace settings](https://i.ibb.co/0y5NgFT1/Parametre.png) |
+
+| Lista branca | Gestor de cookies |
+|:---:|:---:|
+| ![ZeroTrace whitelist](https://i.ibb.co/p6DYDBXW/whitlist.png) | ![ZeroTrace cookies](https://i.ibb.co/XfFzmHVG/Cookies.png) |
 
 </div>
 
@@ -42,11 +46,13 @@ ZeroTrace é uma extensão Chrome que apaga instantaneamente todos os rastros de
 ## Funcionalidades
 
 - **Limpeza com 1 clique** — prima o botão, pronto
+- **Intervalo de tempo** — limpe a última hora, 24h, 7 dias ou tudo
 - **Lista branca de sites** — proteja domínios; os seus dados sobrevivem a cada limpeza
-- **Visualizador de cookies** — navegue pelos cookies por domínio, proteja-os ou elimine-os diretamente nas definições
-- **5 categorias** — ative ou desative cada uma de forma independente
+- **Gestor de cookies** — navegue pelos cookies por domínio, proteja-os ou elimine-os diretamente
+- **7 categorias** — ative ou desative cada uma de forma independente
+- **Fecho seguro** — limpa e fecha todas as janelas do navegador numa ação
+- **Incógnito** — abra uma janela privada diretamente a partir do popup
 - **Limpeza automática no arranque** — limpa automaticamente cada vez que o navegador arranca
-- **Estatísticas pós-limpeza** — cookies e URLs eliminados mostrados após cada limpeza
 - **Cópia de segurança e restauro** — exporte e importe as definições em JSON
 - **Seletor de idioma** — mude o idioma da interface diretamente nas definições
 - **Manifest V3** — padrão moderno de extensões Chrome
@@ -57,10 +63,12 @@ ZeroTrace é uma extensão Chrome que apaga instantaneamente todos os rastros de
 
 | Categoria | O que é eliminado |
 |---|---|
-| **Navigation Trail** | Histórico e transferências |
+| **Navigation Trail** | Histórico de navegação e pesquisa |
+| **Transferências** | Histórico de transferências |
 | **Web Cache** | Ficheiros em cache, imagens, service workers |
 | **Cookies & Sessions** | Todos os cookies *(lista branca protegida)* |
-| **Site Storage** | LocalStorage, IndexedDB, WebSQL |
+| **LocalStorage** | Preferências e dados dos sites |
+| **IndexedDB** | Bases de dados offline & PWA |
 | **Forms & Passwords** | Preenchimento automático e palavras-passe *(desativado por defeito)* |
 
 ---
