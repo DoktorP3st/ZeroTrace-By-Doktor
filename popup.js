@@ -162,12 +162,18 @@ async function cleanCookies() {
   return allVisible.length - toKeep.length;
 }
 
-async function cleanLocalStorage(since) {
-  await safeRemove({ since }, { localStorage: true });
+async function cleanLocalStorage(since, wl = []) {
+  const excluded = wl.flatMap(w => [`https://${w}`, `http://${w}`]);
+  const opts = { since };
+  if (excluded.length) opts.excludedOrigins = excluded;
+  await safeRemove(opts, { localStorage: true });
 }
 
-async function cleanIndexedDB(since) {
-  await safeRemove({ since }, { indexedDB: true });
+async function cleanIndexedDB(since, wl = []) {
+  const excluded = wl.flatMap(w => [`https://${w}`, `http://${w}`]);
+  const opts = { since };
+  if (excluded.length) opts.excludedOrigins = excluded;
+  await safeRemove(opts, { indexedDB: true });
 }
 
 async function cleanForms(since) {
@@ -191,8 +197,8 @@ async function runClean() {
   if (categories.includes('downloads'))    tasks.push(cleanDownloads(since).then(() => { stats.downloads = true; }));
   if (categories.includes('cache'))        tasks.push(cleanCache(since).then(() => { stats.cache = true; }));
   if (categories.includes('cookies'))      tasks.push(cleanCookies().then(n => { stats.cookies += n; }));
-  if (categories.includes('localStorage')) tasks.push(cleanLocalStorage(since).then(() => { stats.storage = true; }));
-  if (categories.includes('indexedDB'))    tasks.push(cleanIndexedDB(since).then(() => { stats.storage = true; }));
+  if (categories.includes('localStorage')) tasks.push(cleanLocalStorage(since, whitelist).then(() => { stats.storage = true; }));
+  if (categories.includes('indexedDB'))    tasks.push(cleanIndexedDB(since, whitelist).then(() => { stats.storage = true; }));
   if (categories.includes('forms'))        tasks.push(cleanForms(since).then(() => { stats.forms = true; }));
 
   await Promise.allSettled(tasks);

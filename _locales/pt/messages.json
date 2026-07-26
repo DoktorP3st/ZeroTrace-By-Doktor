@@ -4,7 +4,7 @@
   "not_a_web_page":     { "message": "Não é uma página web" },
   "protect":            { "message": "Proteger" },
   "protected":          { "message": "Protegido" },
-  "manage_protected":   { "message": "Gerir sites protegidos" },
+  "manage_protected":   { "message": "Definições" },
   "what_to_clean":      { "message": "O QUE LIMPAR" },
   "cat_history_name":   { "message": "Navigation Trail" },
   "cat_history_desc":   { "message": "Histórico de navegação e pesquisa" },

@@ -70,10 +70,16 @@ async function performClean(whitelist, categories) {
     tasks.push(cleanCookies(whitelist));
   }
   if (categories.includes('localStorage')) {
-    tasks.push(safeRemove({ since: 0 }, { localStorage: true }));
+    const excluded = whitelist.flatMap(w => [`https://${w}`, `http://${w}`]);
+    const opts = { since: 0 };
+    if (excluded.length) opts.excludedOrigins = excluded;
+    tasks.push(safeRemove(opts, { localStorage: true }));
   }
   if (categories.includes('indexedDB')) {
-    tasks.push(safeRemove({ since: 0 }, { indexedDB: true }));
+    const excluded = whitelist.flatMap(w => [`https://${w}`, `http://${w}`]);
+    const opts = { since: 0 };
+    if (excluded.length) opts.excludedOrigins = excluded;
+    tasks.push(safeRemove(opts, { indexedDB: true }));
   }
   if (categories.includes('forms')) {
     tasks.push(safeRemove({ since: 0 }, { formData: true }));
