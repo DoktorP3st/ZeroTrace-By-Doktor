@@ -11,7 +11,7 @@
 
 **Supprimez toutes vos traces de navigation en un clic — avec liste blanche pour protéger les sites importants.**
 
-![Version](https://img.shields.io/badge/version-1.5.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.5.1-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Licence](https://img.shields.io/badge/licence-GPL--v3-6b7491?style=flat-square)
 ![Chrome](https://img.shields.io/badge/Chrome-Compatible-4285F4?style=flat-square&logo=googlechrome&logoColor=white) ![Brave](https://img.shields.io/badge/Brave-Compatible-FB542B?style=flat-square&logo=brave&logoColor=white)
@@ -49,7 +49,7 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 
 - **Nettoyage en 1 clic** — appuyez sur le bouton, c'est fait
 - **Plage horaire** — nettoyez la dernière heure, 24h, 7 jours ou tout
-- **Liste blanche de sites** — protégez un domaine ; ses données survivent à chaque nettoyage
+- **Liste blanche de sites** — protégez un domaine ; ses cookies, localStorage et IndexedDB survivent à chaque nettoyage
 - **Gestionnaire de cookies** — parcourez les cookies par domaine, protégez-les ou supprimez-les directement
 - **7 catégories de nettoyage** — activez ou désactivez chacune indépendamment
 - **Fermeture sécurisée** — nettoie et ferme toutes les fenêtres du navigateur en une action
@@ -69,8 +69,8 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 | **Téléchargements** | Historique des téléchargements |
 | **Web Cache** | Fichiers en cache, images, service workers |
 | **Cookies & Sessions** | Tous les cookies *(liste blanche protégée)* |
-| **LocalStorage** | Préférences et données des sites |
-| **IndexedDB** | Bases de données hors-ligne & PWA |
+| **LocalStorage** | Préférences et données des sites *(liste blanche protégée)* |
+| **IndexedDB** | Bases de données hors-ligne & PWA *(liste blanche protégée)* |
 | **Forms & Passwords** | Formulaires & mots de passe *(désactivé par défaut)* |
 
 ---
@@ -90,7 +90,7 @@ Déconnectez-vous de tout ce dont vous n'avez pas besoin. Restez connecté là o
 
 **Protéger un site** — Naviguez vers un site, ouvrez la popup et cliquez sur **Protéger**.
 
-**Gérer la liste blanche** — Cliquez sur **Gérer les sites protégés** pour ouvrir les paramètres.
+**Gérer la liste blanche** — Cliquez sur **Paramètres** pour ouvrir les paramètres complets.
 
 **Nettoyer** — Activez les catégories souhaitées, choisissez une plage horaire, puis appuyez sur **TOUT NETTOYER**.
 

@@ -11,7 +11,7 @@
 
 **Wipe all browser traces in one click — with whitelist protection for the sites you care about.**
 
-![Version](https://img.shields.io/badge/version-1.5.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.5.1-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![License](https://img.shields.io/badge/license-GPL--v3-6b7491?style=flat-square)
 ![Chrome](https://img.shields.io/badge/Chrome-Compatible-4285F4?style=flat-square&logo=googlechrome&logoColor=white) ![Brave](https://img.shields.io/badge/Brave-Compatible-FB542B?style=flat-square&logo=brave&logoColor=white)
@@ -49,7 +49,7 @@ Log out of everything you don't need. Stay logged into everything you do.
 
 - **One-click cleaning** — hit the button, done
 - **Time range** — clean the last hour, 24h, 7 days, or all time
-- **Site whitelist** — protect any domain; their cookies survive every wipe
+- **Site whitelist** — protect any domain; their cookies, localStorage, and IndexedDB survive every wipe
 - **Cookie manager** — browse all cookies by domain, move them to whitelist or delete them directly
 - **7 cleaning categories** — toggle each one independently
 - **Secure close** — clean and close all browser windows in one action
@@ -69,8 +69,8 @@ Log out of everything you don't need. Stay logged into everything you do.
 | **Downloads** | Download history list |
 | **Web Cache** | Cached files, images, service workers |
 | **Cookies & Sessions** | All cookies *(whitelist protected)* |
-| **LocalStorage** | Site preferences & data |
-| **IndexedDB** | Offline databases & PWA data |
+| **LocalStorage** | Site preferences & data *(whitelist protected)* |
+| **IndexedDB** | Offline databases & PWA data *(whitelist protected)* |
 | **Forms & Passwords** | Autofill data & saved passwords *(off by default)* |
 
 ---
@@ -90,7 +90,7 @@ Log out of everything you don't need. Stay logged into everything you do.
 
 **Protecting a site** — Navigate to any site, open the popup, and click **Protect**.
 
-**Managing your whitelist** — Click **Manage protected sites** to open the full settings page.
+**Managing your whitelist** — Click **Settings** to open the full settings page.
 
 **Cleaning** — Toggle the categories you want, select a time range, then press **CLEAN ALL**.
 

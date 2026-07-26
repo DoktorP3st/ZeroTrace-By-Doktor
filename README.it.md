@@ -11,7 +11,7 @@
 
 **Cancella tutte le tracce del browser in un clic — con lista bianca per proteggere i siti importanti.**
 
-![Versione](https://img.shields.io/badge/versione-1.5.0-e63946?style=flat-square)
+![Versione](https://img.shields.io/badge/versione-1.5.1-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Licenza](https://img.shields.io/badge/licenza-GPL--v3-6b7491?style=flat-square)
 ![Chrome](https://img.shields.io/badge/Chrome-Compatible-4285F4?style=flat-square&logo=googlechrome&logoColor=white) ![Brave](https://img.shields.io/badge/Brave-Compatible-FB542B?style=flat-square&logo=brave&logoColor=white)
@@ -47,7 +47,7 @@ ZeroTrace è un'estensione Chrome che cancella istantaneamente tutte le tracce d
 
 - **Pulizia con 1 clic** — premi il pulsante, fatto
 - **Intervallo di tempo** — pulisci l'ultima ora, 24h, 7 giorni o tutto
-- **Lista bianca** — proteggi i domini; i loro dati sopravvivono a ogni pulizia
+- **Lista bianca** — proteggi i domini; cookie, localStorage e IndexedDB sopravvivono a ogni pulizia
 - **Gestore cookie** — sfoglia i cookie per dominio, proteggili o eliminali direttamente
 - **7 categorie** — attiva o disattiva ciascuna in modo indipendente
 - **Chiusura sicura** — pulisce e chiude tutte le finestre del browser in un'azione
@@ -67,8 +67,8 @@ ZeroTrace è un'estensione Chrome che cancella istantaneamente tutte le tracce d
 | **Download** | Cronologia dei download |
 | **Web Cache** | File in cache, immagini, service worker |
 | **Cookies & Sessions** | Tutti i cookie *(lista bianca protetta)* |
-| **LocalStorage** | Preferenze e dati dei siti |
-| **IndexedDB** | Database offline & PWA |
+| **LocalStorage** | Preferenze e dati dei siti *(lista bianca protetta)* |
+| **IndexedDB** | Database offline & PWA *(lista bianca protetta)* |
 | **Forms & Passwords** | Compilazione automatica e password *(disattivato per impostazione predefinita)* |
 
 ---

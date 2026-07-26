@@ -11,7 +11,7 @@
 
 **Alle Browser-Spuren per Klick löschen — mit Whitelist-Schutz für wichtige Seiten.**
 
-![Version](https://img.shields.io/badge/Version-1.5.0-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.5.1-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![Lizenz](https://img.shields.io/badge/Lizenz-GPL--v3-6b7491?style=flat-square)
 ![Chrome](https://img.shields.io/badge/Chrome-Compatible-4285F4?style=flat-square&logo=googlechrome&logoColor=white) ![Brave](https://img.shields.io/badge/Brave-Compatible-FB542B?style=flat-square&logo=brave&logoColor=white)
@@ -47,7 +47,7 @@ ZeroTrace ist eine Chrome-Erweiterung, die alle Browser-Spuren sofort löscht �
 
 - **Ein-Klick-Bereinigung** — Schaltfläche drücken, fertig
 - **Zeitraum** — letzte Stunde, 24h, 7 Tage oder alles bereinigen
-- **Whitelist** — Domains schützen; deren Daten überleben jede Bereinigung
+- **Whitelist** — Domains schützen; Cookies, localStorage und IndexedDB überleben jede Bereinigung
 - **Cookie-Manager** — Cookies nach Domain durchsuchen, schützen oder direkt löschen
 - **7 Kategorien** — jede einzeln aktivieren oder deaktivieren
 - **Sicher schließen** — bereinigt und schließt alle Browser-Fenster in einer Aktion
@@ -67,8 +67,8 @@ ZeroTrace ist eine Chrome-Erweiterung, die alle Browser-Spuren sofort löscht �
 | **Downloads** | Download-Verlauf |
 | **Web Cache** | Cache-Dateien, Bilder, Service Worker |
 | **Cookies & Sessions** | Alle Cookies *(Whitelist-Schutz)* |
-| **LocalStorage** | Website-Einstellungen & Daten |
-| **IndexedDB** | Offline-Datenbanken & PWA |
+| **LocalStorage** | Website-Einstellungen & Daten *(Whitelist-Schutz)* |
+| **IndexedDB** | Offline-Datenbanken & PWA *(Whitelist-Schutz)* |
 | **Forms & Passwords** | Autofill und Passwörter *(standardmäßig deaktiviert)* |
 
 ---
