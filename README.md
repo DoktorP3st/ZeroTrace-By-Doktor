@@ -123,7 +123,7 @@ GNU General Public License v3.0 — see [LICENSE](LICENSE).
 
 Any derivative work must remain open-source under the same license. Commercial use without publishing the source code is not permitted.
 
-> ZeroTrace was born out of necessity: Click & Clean, a browser cleaning extension used by millions, was discontinued with no open-source successor. This project exists solely to fill that gap — free, transparent, and community-driven. There is no commercial intent.
+> ZeroTrace started primarily as a personal project: a fast, fully local alternative to browser-cleaning extensions like Click&Clean, built first and foremost for my own daily use — no servers, no data collection, no telemetry, and every line of code open for anyone to review. Sharing it publicly felt natural: if it turns out useful to others too, that's a welcome bonus, not the goal. No commercial intent.
 
 ---
 
