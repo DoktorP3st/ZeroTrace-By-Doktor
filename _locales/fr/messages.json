@@ -55,5 +55,19 @@
   "cookies_no_results": { "message": "Aucun cookie trouvé" },
   "delete_domain":      { "message": "Supprimer" },
   "fresh_start_title":  { "message": "Conseil : repartir de zéro pour de meilleurs résultats" },
-  "fresh_start_desc":   { "message": "Pour un nettoyage complet, efface d'abord toutes les données du navigateur manuellement (Paramètres → Supprimer les données de navigation), puis reconnecte-toi sur chaque site important un par un et ajoute-le à la whitelist. Cela évite que de vieux cookies restent cachés." }
+  "fresh_start_desc":   { "message": "Pour un nettoyage complet, efface d'abord toutes les données du navigateur manuellement (Paramètres → Supprimer les données de navigation), puis reconnecte-toi sur chaque site important un par un et ajoute-le à la whitelist. Cela évite que de vieux cookies restent cachés." },
+  "invalid_domain":     { "message": "Domaine invalide" },
+  "already_protected":  { "message": "%domain% est déjà protégé" },
+  "stat_cookies":       { "message": "cookies" },
+  "stat_downloads_cleared": { "message": "téléchargements effacés" },
+  "stat_cache_cleared": { "message": "cache effacé" },
+  "stat_storage_cleared": { "message": "stockage effacé" },
+  "stat_forms_cleared": { "message": "formulaires effacés" },
+  "stat_nothing":       { "message": "rien à nettoyer" },
+  "unit_site":          { "message": "site" },
+  "unit_site_plural":   { "message": "sites" },
+  "unit_domain":        { "message": "domaine" },
+  "unit_domain_plural": { "message": "domaines" },
+  "confirm_clean_domain_singular": { "message": "Supprimer les cookies de %n% domaine non protégé ?" },
+  "confirm_clean_domain_plural": { "message": "Supprimer les cookies de %n% domaines non protégés ?" }
 }

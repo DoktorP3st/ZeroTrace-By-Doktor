@@ -55,5 +55,19 @@
   "cookies_no_results": { "message": "No cookies found" },
   "delete_domain":      { "message": "Delete" },
   "fresh_start_title":  { "message": "Tip: start from a clean slate for best results" },
-  "fresh_start_desc":   { "message": "For a complete clean, first clear all browser data manually (Settings → Clear browsing data), then re-login to each important site one by one and add it to the whitelist. This prevents old hidden cookies from persisting." }
+  "fresh_start_desc":   { "message": "For a complete clean, first clear all browser data manually (Settings → Clear browsing data), then re-login to each important site one by one and add it to the whitelist. This prevents old hidden cookies from persisting." },
+  "invalid_domain":     { "message": "Invalid domain" },
+  "already_protected":  { "message": "%domain% is already protected" },
+  "stat_cookies":       { "message": "cookies" },
+  "stat_downloads_cleared": { "message": "downloads cleared" },
+  "stat_cache_cleared": { "message": "cache cleared" },
+  "stat_storage_cleared": { "message": "storage cleared" },
+  "stat_forms_cleared": { "message": "forms cleared" },
+  "stat_nothing":       { "message": "nothing to clean" },
+  "unit_site":          { "message": "site" },
+  "unit_site_plural":   { "message": "sites" },
+  "unit_domain":        { "message": "domain" },
+  "unit_domain_plural": { "message": "domains" },
+  "confirm_clean_domain_singular": { "message": "Delete cookies from %n% unprotected domain?" },
+  "confirm_clean_domain_plural": { "message": "Delete cookies from %n% unprotected domains?" }
 }

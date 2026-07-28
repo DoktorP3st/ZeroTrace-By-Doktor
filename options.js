@@ -54,7 +54,8 @@ function render() {
   const dangerEl = document.getElementById('danger-section');
   const totalEl  = document.getElementById('total-count');
 
-  totalEl.textContent = `${whitelist.length} site${whitelist.length !== 1 ? 's' : ''}`;
+  const siteUnit = whitelist.length !== 1 ? t('unit_site_plural') : t('unit_site');
+  totalEl.textContent = `${whitelist.length} ${siteUnit}`;
   listEl.innerHTML = '';
 
   if (whitelist.length === 0) {
@@ -67,13 +68,22 @@ function render() {
     [...whitelist].sort().forEach(domain => {
       const li = document.createElement('li');
       li.className = 'site-item';
-      li.innerHTML = `
-        <span class="site-shield">
-          <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </span>
-        <span class="site-domain" title="${domain}">${domain}</span>
-        <button class="site-remove" data-domain="${domain}">${t('remove')}</button>
-      `;
+
+      const shield = document.createElement('span');
+      shield.className = 'site-shield';
+      shield.innerHTML = '<svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>';
+
+      const domainSpan = document.createElement('span');
+      domainSpan.className = 'site-domain';
+      domainSpan.title = domain;
+      domainSpan.textContent = domain;
+
+      const removeBtn = document.createElement('button');
+      removeBtn.className = 'site-remove';
+      removeBtn.dataset.domain = domain;
+      removeBtn.textContent = t('remove');
+
+      li.append(shield, domainSpan, removeBtn);
       listEl.appendChild(li);
     });
   }
@@ -94,12 +104,12 @@ async function addDomain() {
   if (!raw) return;
 
   if (!isValidDomain(raw)) {
-    errorEl.textContent = `"${raw}" — ${t('import_failed')}`;
+    errorEl.textContent = `"${raw}" — ${t('invalid_domain')}`;
     errorEl.className = 'add-error';
     return;
   }
   if (whitelist.includes(raw)) {
-    errorEl.textContent = `${raw} is already protected`;
+    errorEl.textContent = t('already_protected').replace('%domain%', raw);
     errorEl.className = 'add-error';
     return;
   }
@@ -134,16 +144,7 @@ async function changeLang() {
 // ── Cookie columns ──
 
 async function loadCookieDomains() {
-  const unpartitioned = await chrome.cookies.getAll({});
-  let partitioned = [];
-  try { partitioned = await chrome.cookies.getAll({ partitionKey: {} }); } catch {}
-
-  const seen = new Set();
-  const all = [];
-  for (const c of [...unpartitioned, ...partitioned]) {
-    const k = `${c.name}|${c.domain}|${c.path}|${c.storeId}|${c.partitionKey?.topLevelSite ?? ''}`;
-    if (!seen.has(k)) { seen.add(k); all.push(c); }
-  }
+  const all = await getAllVisibleCookies();
 
   const map = new Map();
   for (const c of all) {
@@ -194,7 +195,8 @@ function renderCookieColumns(filter = '') {
 
   const totalDomains  = cookieDomains.length;
   const totalCookies  = cookieDomains.reduce((s, d) => s + d.count, 0);
-  summaryEl.textContent = `${totalDomains} domaines · ${totalCookies} cookies`;
+  const domainUnit = totalDomains !== 1 ? t('unit_domain_plural') : t('unit_domain');
+  summaryEl.textContent = `${totalDomains} ${domainUnit} · ${totalCookies} ${t('stat_cookies')}`;
 }
 
 function createColRow(domain, count, col) {
@@ -208,17 +210,26 @@ function createColRow(domain, count, col) {
     ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="10" height="10"><polyline points="9 18 15 12 9 6"/></svg>`
     : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="10" height="10"><polyline points="15 18 9 12 15 6"/></svg>`;
 
-  const countHtml = count > 0
-    ? `<span class="col-row-count">${count}</span>`
-    : '';
+  const domainSpan = document.createElement('span');
+  domainSpan.className = 'col-row-domain';
+  domainSpan.title = domain;
+  domainSpan.textContent = domain;
+  row.appendChild(domainSpan);
 
-  row.innerHTML = `
-    <span class="col-row-domain" title="${domain}">${domain}</span>
-    ${countHtml}
-    <button class="col-row-arrow" title="${toProtect ? 'Protéger' : 'Retirer'}">${arrowSvg}</button>
-  `;
+  if (count > 0) {
+    const countSpan = document.createElement('span');
+    countSpan.className = 'col-row-count';
+    countSpan.textContent = count;
+    row.appendChild(countSpan);
+  }
 
-  row.querySelector('.col-row-arrow').addEventListener('click', e => {
+  const arrowBtn = document.createElement('button');
+  arrowBtn.className = 'col-row-arrow';
+  arrowBtn.title = toProtect ? t('protect') : t('remove');
+  arrowBtn.innerHTML = arrowSvg;
+  row.appendChild(arrowBtn);
+
+  arrowBtn.addEventListener('click', e => {
     e.stopPropagation();
     moveColItem(domain, toProtect);
   });
@@ -248,42 +259,10 @@ async function cleanNonProtected() {
   if (targets.length === 0) return;
 
   const n = targets.length;
-  if (!confirm(`Supprimer les cookies de ${n} domaine${n > 1 ? 's' : ''} non protégé${n > 1 ? 's' : ''} ?`)) return;
+  const confirmKey = n > 1 ? 'confirm_clean_domain_plural' : 'confirm_clean_domain_singular';
+  if (!confirm(t(confirmKey).replace('%n%', n))) return;
 
-  // Énumérer tous les cookies whitelistés à conserver
-  const unpartitioned = await chrome.cookies.getAll({});
-  let partitioned = [];
-  try { partitioned = await chrome.cookies.getAll({ partitionKey: {} }); } catch {}
-
-  const seen = new Set();
-  const toRestore = [];
-  for (const c of [...unpartitioned, ...partitioned]) {
-    const k = `${c.name}|${c.domain}|${c.path}|${c.storeId}|${c.partitionKey?.topLevelSite ?? ''}`;
-    if (!seen.has(k)) {
-      seen.add(k);
-      if (whitelist.includes(c.domain.replace(/^\./, ''))) toRestore.push(c);
-    }
-  }
-
-  // Nuke tous les cookies (CHIPS inclus)
-  await chrome.browsingData.remove({ since: 0 }, { cookies: true });
-
-  // Restore les cookies protégés
-  for (const cookie of toRestore) {
-    const details = {
-      url: `${cookie.secure ? 'https' : 'http'}://${cookie.domain.replace(/^\./, '')}${cookie.path}`,
-      name: cookie.name,
-      value: cookie.value,
-      path: cookie.path,
-      secure: cookie.secure,
-      httpOnly: cookie.httpOnly,
-      sameSite: cookie.sameSite,
-      storeId: cookie.storeId,
-    };
-    if (!cookie.name.startsWith('__Host-')) details.domain = cookie.domain;
-    if (cookie.expirationDate) details.expirationDate = cookie.expirationDate;
-    try { await chrome.cookies.set(details); } catch {}
-  }
+  await cleanCookiesKeeping(cookie => isWhitelisted(cookie.domain, whitelist));
 
   await loadCookieDomains();
   renderCookieColumns(document.getElementById('cookie-search').value);

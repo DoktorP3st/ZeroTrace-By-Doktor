@@ -11,7 +11,7 @@
 
 **Elimina todos los rastros de tu navegador en un clic — con lista blanca para proteger los sitios que te importan.**
 
-![Version](https://img.shields.io/badge/versión-1.5.1-e63946?style=flat-square)
+![Version](https://img.shields.io/badge/versión-1.6.0-e63946?style=flat-square)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-00c896?style=flat-square)
 ![License](https://img.shields.io/badge/licencia-GPL--v3-6b7491?style=flat-square)
 ![Chrome](https://img.shields.io/badge/Chrome-Compatible-4285F4?style=flat-square&logo=googlechrome&logoColor=white) ![Brave](https://img.shields.io/badge/Brave-Compatible-FB542B?style=flat-square&logo=brave&logoColor=white)

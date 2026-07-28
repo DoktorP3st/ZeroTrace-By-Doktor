@@ -55,5 +55,19 @@
   "cookies_no_results": { "message": "Keine Cookies gefunden" },
   "delete_domain":      { "message": "Löschen" },
   "fresh_start_title":  { "message": "Tipp: Neustart für beste Ergebnisse" },
-  "fresh_start_desc":   { "message": "Für eine vollständige Bereinigung lösche zuerst alle Browserdaten manuell (Einstellungen → Browserdaten löschen), melde dich dann bei jeder wichtigen Seite neu an und füge sie der Whitelist hinzu. So bleiben keine alten Cookies versteckt." }
+  "fresh_start_desc":   { "message": "Für eine vollständige Bereinigung lösche zuerst alle Browserdaten manuell (Einstellungen → Browserdaten löschen), melde dich dann bei jeder wichtigen Seite neu an und füge sie der Whitelist hinzu. So bleiben keine alten Cookies versteckt." },
+  "invalid_domain":     { "message": "Ungültige Domain" },
+  "already_protected":  { "message": "%domain% ist bereits geschützt" },
+  "stat_cookies":       { "message": "Cookies" },
+  "stat_downloads_cleared": { "message": "Downloads gelöscht" },
+  "stat_cache_cleared": { "message": "Cache gelöscht" },
+  "stat_storage_cleared": { "message": "Speicher gelöscht" },
+  "stat_forms_cleared": { "message": "Formulare gelöscht" },
+  "stat_nothing":       { "message": "nichts zu bereinigen" },
+  "unit_site":          { "message": "Website" },
+  "unit_site_plural":   { "message": "Websites" },
+  "unit_domain":        { "message": "Domain" },
+  "unit_domain_plural": { "message": "Domains" },
+  "confirm_clean_domain_singular": { "message": "Cookies von %n% ungeschützten Domain löschen?" },
+  "confirm_clean_domain_plural": { "message": "Cookies von %n% ungeschützten Domains löschen?" }
 }

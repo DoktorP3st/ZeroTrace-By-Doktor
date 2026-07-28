@@ -1,46 +1,13 @@
 // Whitelist only protects COOKIES. Everything else is wiped for all sites.
 
+importScripts('cookie-utils.js');
+
 async function safeRemove(options, dataType) {
   try { await chrome.browsingData.remove(options, dataType); } catch {}
 }
 
 async function cleanCookies(whitelist) {
-  const unpartitioned = await chrome.cookies.getAll({});
-  let partitioned = [];
-  try { partitioned = await chrome.cookies.getAll({ partitionKey: {} }); } catch {}
-
-  const seen = new Set();
-  const allVisible = [];
-  for (const c of [...unpartitioned, ...partitioned]) {
-    const k = `${c.name}|${c.domain}|${c.path}|${c.storeId}|${c.partitionKey?.topLevelSite ?? ''}`;
-    if (!seen.has(k)) { seen.add(k); allVisible.push(c); }
-  }
-
-  const toKeep = allVisible.filter(cookie => {
-    const domain = cookie.domain.replace(/^\./, '');
-    return whitelist.some(w => domain === w || domain.endsWith('.' + w));
-  });
-
-  try { await chrome.browsingData.remove({ since: 0 }, { cookies: true }); } catch { return; }
-
-  for (const cookie of toKeep) {
-    const protocol = cookie.secure ? 'https' : 'http';
-    const host = cookie.domain.replace(/^\./, '');
-    const details = {
-      url: `${protocol}://${host}${cookie.path}`,
-      name: cookie.name,
-      value: cookie.value,
-      path: cookie.path,
-      secure: cookie.secure,
-      httpOnly: cookie.httpOnly,
-      sameSite: cookie.sameSite || 'unspecified',
-      storeId: cookie.storeId,
-    };
-    if (!cookie.name.startsWith('__Host-')) details.domain = cookie.domain;
-    if (cookie.expirationDate) details.expirationDate = cookie.expirationDate;
-    if (cookie.partitionKey !== undefined) details.partitionKey = cookie.partitionKey;
-    try { await chrome.cookies.set(details); } catch {}
-  }
+  await cleanCookiesKeeping(cookie => isWhitelisted(cookie.domain, whitelist));
 }
 
 async function performClean(whitelist, categories) {

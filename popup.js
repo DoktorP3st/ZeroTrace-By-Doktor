@@ -21,12 +21,12 @@ function getSelectedCategories() {
 
 function formatStats(stats) {
   const parts = [];
-  if (stats.cookies > 0)  parts.push(`${stats.cookies.toLocaleString()} cookies`);
-  if (stats.downloads)    parts.push('downloads cleared');
-  if (stats.cache)        parts.push('cache cleared');
-  if (stats.storage)      parts.push('storage cleared');
-  if (stats.forms)        parts.push('forms cleared');
-  return parts.length ? parts.join(' · ') : 'nothing to clean';
+  if (stats.cookies > 0)  parts.push(`${stats.cookies.toLocaleString()} ${t('stat_cookies')}`);
+  if (stats.downloads)    parts.push(t('stat_downloads_cleared'));
+  if (stats.cache)        parts.push(t('stat_cache_cleared'));
+  if (stats.storage)      parts.push(t('stat_storage_cleared'));
+  if (stats.forms)        parts.push(t('stat_forms_cleared'));
+  return parts.length ? parts.join(' · ') : t('stat_nothing');
 }
 
 // ── Storage ──
@@ -117,49 +117,9 @@ async function cleanCache(since) {
   }
 }
 
-function cookieKey(c) {
-  return `${c.name}|${c.domain}|${c.path}|${c.storeId}|${c.partitionKey?.topLevelSite ?? ''}`;
-}
-
 async function cleanCookies() {
-  const unpartitioned = await chrome.cookies.getAll({});
-  let partitioned = [];
-  try { partitioned = await chrome.cookies.getAll({ partitionKey: {} }); } catch {}
-
-  const seen = new Set();
-  const allVisible = [];
-  for (const c of [...unpartitioned, ...partitioned]) {
-    const k = cookieKey(c);
-    if (!seen.has(k)) { seen.add(k); allVisible.push(c); }
-  }
-
-  const toKeep = allVisible.filter(cookie => {
-    const domain = cookie.domain.replace(/^\./, '');
-    return whitelist.some(w => domain === w || domain.endsWith('.' + w));
-  });
-
-  try { await chrome.browsingData.remove({ since: 0 }, { cookies: true }); } catch { return 0; }
-
-  for (const cookie of toKeep) {
-    const protocol = cookie.secure ? 'https' : 'http';
-    const host = cookie.domain.replace(/^\./, '');
-    const details = {
-      url: `${protocol}://${host}${cookie.path}`,
-      name: cookie.name,
-      value: cookie.value,
-      path: cookie.path,
-      secure: cookie.secure,
-      httpOnly: cookie.httpOnly,
-      sameSite: cookie.sameSite || 'unspecified',
-      storeId: cookie.storeId,
-    };
-    if (!cookie.name.startsWith('__Host-')) details.domain = cookie.domain;
-    if (cookie.expirationDate) details.expirationDate = cookie.expirationDate;
-    if (cookie.partitionKey !== undefined) details.partitionKey = cookie.partitionKey;
-    try { await chrome.cookies.set(details); } catch {}
-  }
-
-  return allVisible.length - toKeep.length;
+  const { total, kept } = await cleanCookiesKeeping(cookie => isWhitelisted(cookie.domain, whitelist));
+  return total - kept;
 }
 
 async function cleanLocalStorage(since, wl = []) {
