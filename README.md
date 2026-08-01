@@ -128,5 +128,5 @@ Any derivative work must remain open-source under the same license. Commercial u
 ---
 
 <div align="center">
-  Made by <a href="https://github.com/Pestovich">Pestovich</a>
+  Made by <a href="https://github.com/Lekarov">Pestovich</a>
 </div>

@@ -108,5 +108,5 @@ Cualquier trabajo derivado debe permanecer open-source bajo la misma licencia. E
 ---
 
 <div align="center">
-  Hecho por <a href="https://github.com/Pestovich">Pestovich</a>
+  Hecho por <a href="https://github.com/Lekarov">Pestovich</a>
 </div>

@@ -108,5 +108,5 @@ Qualsiasi opera derivata deve rimanere open-source sotto la stessa licenza. L'us
 ---
 
 <div align="center">
-  Creato da <a href="https://github.com/Pestovich">Pestovich</a>
+  Creato da <a href="https://github.com/Lekarov">Pestovich</a>
 </div>

@@ -108,5 +108,5 @@ Jedes abgeleitete Werk muss unter derselben Lizenz open-source bleiben. Kommerzi
 ---
 
 <div align="center">
-  Erstellt von <a href="https://github.com/Pestovich">Pestovich</a>
+  Erstellt von <a href="https://github.com/Lekarov">Pestovich</a>
 </div>

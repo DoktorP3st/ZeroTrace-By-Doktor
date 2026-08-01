@@ -108,5 +108,5 @@ Qualquer trabalho derivado deve permanecer open-source sob a mesma licença. O u
 ---
 
 <div align="center">
-  Feito por <a href="https://github.com/Pestovich">Pestovich</a>
+  Feito por <a href="https://github.com/Lekarov">Pestovich</a>
 </div>

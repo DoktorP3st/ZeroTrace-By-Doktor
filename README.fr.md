@@ -128,5 +128,5 @@ Tout dérivé doit rester open-source sous la même licence. L'utilisation comme
 ---
 
 <div align="center">
-  Fait par <a href="https://github.com/Pestovich">Pestovich</a>
+  Fait par <a href="https://github.com/Lekarov">Pestovich</a>
 </div>
